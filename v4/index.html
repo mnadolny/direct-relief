@@ -94,7 +94,7 @@ p{margin:0}
 .hero .routes path{fill:none;stroke:var(--orange);stroke-width:1.2;stroke-dasharray:2 6;vector-effect:non-scaling-stroke}
 .hero .grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center}
 .hero h1{font-weight:900;font-stretch:66%;font-size:clamp(3.6rem,8.6cqi,7.6rem);line-height:.86;letter-spacing:-.015em;text-transform:uppercase}
-.hero h1 .pre{display:block;font-size:.605em;line-height:.92}
+.hero h1 .pre{display:block;padding-top:.51em;font-size:.605em;line-height:.92}
 .hero h1 em{font-style:normal;color:var(--orange)}
 .hero .lede{margin-top:18px;max-width:46ch;font-size:1.12rem;line-height:1.55;color:var(--on-band-2)}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
@@ -387,7 +387,7 @@ p{margin:0}
 .mviz .headline p{font-size:1.12rem;line-height:1.45;color:var(--ink-2);max-width:420px}
 .g100{margin-top:24px;display:flex;flex-wrap:wrap;gap:4px;max-width:340px}
 .g100 i{width:calc((100% - 36px) / 10);aspect-ratio:1;border-radius:2px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22);transition:background-color .3s}
-.glegend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;color:var(--ink-2)}
+.glegend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;line-height:1.5;color:var(--ink-2)}
 .glegend span{display:inline-flex;gap:8px;align-items:center}
 .glegend i{width:12px;height:12px;border-radius:2px;display:inline-block}
 .support{margin-top:56px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 40px;align-items:center;padding:24px;background:var(--surface);border-radius:6px;box-shadow:var(--e1)}
@@ -612,6 +612,7 @@ p{margin:0}
 .news{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:start;padding-bottom:48px;border-bottom:1px solid rgba(238,237,232,.14)}
 .news h2{font-size:clamp(1.8rem,3cqi,2.4rem);font-weight:800;font-stretch:80%;line-height:1}
 .news p{margin-top:10px;color:var(--on-band-2)}
+.news-form{margin:0}
 .news-form label{color:var(--on-band-2);display:block;margin-bottom:8px}
 .nf-row{display:flex;gap:8px}
 .nf-row input{flex:1;min-width:0;height:48px;border-radius:3px;border:0;padding:0 14px;font:400 1rem var(--f-read);background:rgba(238,237,232,.08);color:var(--on-band);box-shadow:inset 0 0 0 1px rgba(238,237,232,.2)}
@@ -738,7 +739,6 @@ body.notes .pin{display:block}
         <a href="https://www.directrelief.org/">Washington wildfires</a>
       </nav>
       <a class="all mono" href="https://www.directrelief.org/">All emergencies →</a>
-      <button class="pin" data-n="1" style="right:12px;top:6px" aria-label="Design note 1">1</button>
     </div>
   </div>
 
@@ -779,7 +779,6 @@ body.notes .pin{display:block}
         </a>
         <span class="sticker" aria-hidden="true"><span class="sk"><img src="img/dr-logo.svg" alt="" width="232" height="44"></span></span>
         <p class="tag">Emergency medical supplies arrive in the Democratic Republic of the Congo.</p>
-        <button class="pin" data-n="2" style="left:-12px;top:-12px" aria-label="Design note 2">2</button>
       </div>
     </div>
   </section>
@@ -804,7 +803,6 @@ body.notes .pin{display:block}
           <span class="what">Fundraising efficiency</span>
         </a>
       </div>
-      <button class="pin" data-n="3" style="left:20px;top:-14px" aria-label="Design note 3">3</button>
       <div class="foot">
         <div class="streak"><span class="streakbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="mono">15 consecutive four-star ratings</span></div>
         <a class="arrow-link" href="#">How each evaluator measures Direct Relief <span class="c" aria-hidden="true">→</span></a>
@@ -825,7 +823,6 @@ body.notes .pin{display:block}
           <blockquote><p>Trikafta has given me the possibility to live for many more years.</p><footer class="mono">Yaroslava Koshel · Lviv</footer></blockquote>
           <a class="arrow-link" href="#">Read Yaroslava's story <span class="c" aria-hidden="true">→</span></a>
         </div>
-        <button class="pin" data-n="4" style="right:-12px;top:-12px" aria-label="Design note 4">4</button>
       </article>
 
       <div class="money rel">
@@ -838,7 +835,6 @@ body.notes .pin{display:block}
           <div class="line"><span class="fig">100%</span><div><h3>General gifts</h3><p>Unrestricted gifts go where need is greatest, including long-term health systems and overlooked emergencies.</p></div></div>
         </div>
         <div class="inkind"><span class="ic" aria-hidden="true">i</span><p><b>Donating medicine?</b> Direct Relief can't accept unrequested or individual prescription donations from the public because of industry regulations.</p></div>
-        <button class="pin" data-n="5" style="right:0;top:-6px" aria-label="Design note 5">5</button>
       </div>
     </div>
   </section>
@@ -851,7 +847,6 @@ body.notes .pin{display:block}
           <h2 id="lev-h"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">46 to 1. </span>About <b>$46 in medicine</b> reaches health providers for every $1 it costs to deliver it.</h2>
           <p>Manufacturers donate the medicine. Donors fund the warehouse, the cold chain and the flights that get it where it's requested. That's why a gift to Direct Relief moves so much.</p>
         </div>
-        <button class="pin" data-n="6" style="left:-14px;top:-14px" aria-label="Design note 6">6</button>
       </div>
 
       <div class="viz">
@@ -865,7 +860,6 @@ body.notes .pin{display:block}
           <div class="bar"><div class="lab"><span>Medical material aid delivered</span><b>$1.9B</b></div><div class="track"><div class="fill"></div></div></div>
           <div class="bar cost"><div class="lab"><span>Program delivery costs</span><b>$40.9M</b></div><div class="track"><div class="fill"></div></div></div>
           <div class="per100"><b>$2.15</b><span>in delivery costs for every $100 of medical aid</span></div>
-          <button class="pin" data-n="7" style="right:-6px;top:-8px" aria-label="Design note 7">7</button>
         </div>
       </div>
 
@@ -926,7 +920,6 @@ body.notes .pin{display:block}
           </div>
         </div>
         <div class="maplegend mono"><span><i class="lg-hq"></i>Santa Barbara headquarters</span><span><i class="lg-pin"></i>Stories on this page</span><span><i class="lg-route"></i>Shipments in motion</span></div>
-        <button class="pin" data-n="8" style="left:-12px;top:-12px" aria-label="Design note 8">8</button>
       </div>
 
       <div class="stats">
@@ -940,7 +933,6 @@ body.notes .pin{display:block}
         <span class="clock" aria-hidden="true"><i></i></span>
         <p><b>A delivery every 18 minutes, all year.</b> <span>525,600 minutes ÷ 29,657 deliveries</span></p>
         <span class="mono src2">Source: FY2025 Annual Report, pp. 7–8</span>
-        <button class="pin" data-n="9" style="right:-10px;top:-12px" aria-label="Design note 9">9</button>
       </div>
     </div>
   </section>
@@ -957,7 +949,6 @@ body.notes .pin{display:block}
           <li data-step="2"><span class="n mono">03</span><span><b>Move</b><em>Get medicines there safely</em></span></li>
           <li data-step="3"><span class="n mono">04</span><span><b>Deliver</b><em>Help a patient get treatment</em></span></li>
         </ol>
-        <button class="pin" data-n="10" style="left:-14px;top:-14px" aria-label="Design note 10">10</button>
       </aside>
 
       <div class="steps">
@@ -1041,14 +1032,12 @@ body.notes .pin{display:block}
               <span class="mono">This side up<br>Keep cool</span>
             </div>
           </div>
-          <button class="pin" data-n="19" style="right:-8px;top:24px" aria-label="Design note 19">19</button>
         </div>
 
         <div class="mviz rel">
           <div class="headline"><b>99.31%</b><p>of the $2.3 billion in total reported expenses supported medical aid programs.</p></div>
           <div class="palletwrap"><div class="g100" id="g100" role="img" aria-label="100 squares: 99.31 program services, 0.54 administration, 0.15 fundraising, per 100 dollars of expenses"></div><div class="pallet" aria-hidden="true"><i></i><i></i><i></i></div></div>
           <div class="glegend mono"><span><i style="background:var(--orange)"></i>Program services</span><span><i style="background:var(--steel)"></i>Administration</span><span><i style="background:var(--ink)"></i>Fundraising</span></div>
-          <button class="pin" data-n="11" style="right:0;top:-6px" aria-label="Design note 11">11</button>
         </div>
       </div>
 
@@ -1076,7 +1065,6 @@ body.notes .pin{display:block}
         </details>
         <details class="drawer"><summary>Why support, expenses and aid totals differ <span class="c" aria-hidden="true">+</span></summary><p>Support is recorded when it's received, expenses when they're incurred, and aid when it ships. The three totals cover different timing, so they don't match exactly.</p></details>
         <details class="drawer"><summary>How donated medicine is valued <span class="c" aria-hidden="true">+</span></summary><p>Donated products are recorded at fair value under U.S. generally accepted accounting principles.</p></details>
-        <button class="pin" data-n="12" style="left:-14px;top:-10px" aria-label="Design note 12">12</button>
       </div>
 
       <div class="tags rel">
@@ -1087,7 +1075,6 @@ body.notes .pin{display:block}
           <a class="stag" href="#"><span class="hole" aria-hidden="true"></span><span class="tb"><span class="mono">PDF · IRS filing</span><b>FY2025 Form 990</b><span class="go" aria-hidden="true">→</span></span></a>
           <a class="stag" href="#"><span class="hole" aria-hidden="true"></span><span class="tb"><span class="mono">Policy</span><b>Donation Policies</b><span class="go" aria-hidden="true">→</span></span></a>
         </div>
-        <button class="pin" data-n="20" style="left:-14px;top:-10px" aria-label="Design note 20">20</button>
       </div>
     </div>
   </section>
@@ -1127,7 +1114,6 @@ body.notes .pin{display:block}
           <p class="q-ask">How openly does it share what it does?</p>
           <p class="q-how">Seal of Transparency levels for sharing information about finances, programs and results. Platinum is the highest.</p>
         </div>
-        <button class="pin" data-n="13" style="left:-14px;top:-14px" aria-label="Design note 13">13</button>
       </div>
 
       <div class="bigquote">
@@ -1146,7 +1132,6 @@ body.notes .pin{display:block}
           <div class="plate"><span class="mono">Forbes · 2025</span><b><small>No.</small>5</b><p>Private donations among the Top 100 U.S. charities</p></div>
           <div class="plate"><span class="mono">The NonProfit Times · 2025</span><b><small>No.</small>14</b><p>2024 total revenue within the NPT Top 100</p></div>
         </div>
-        <button class="pin" data-n="14" style="right:-10px;top:-12px" aria-label="Design note 14">14</button>
       </div>
 
       <div class="drawers">
@@ -1214,7 +1199,7 @@ body.notes .pin{display:block}
         </figure>
         <div class="honor-side">
           <div class="honor"><span class="mono">TIME</span><b>Dreamer of the Year</b><p>Presented by TIME in collaboration with American Family Insurance.</p><a class="arrow-link sm2" href="#">Read about it <span class="c" aria-hidden="true">→</span></a></div>
-          <div class="honor streak2 rel"><button class="pin" data-n="18" style="right:-10px;top:-12px" aria-label="Design note 18">18</button><span class="mono">Charity Navigator</span><b>15 consecutive four-star ratings</b>
+          <div class="honor streak2 rel"><span class="mono">Charity Navigator</span><b>15 consecutive four-star ratings</b>
             <div class="stk" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="last"></i></div>
             <p>The 15th came in November 2025.</p></div>
         </div>
@@ -1246,7 +1231,6 @@ body.notes .pin{display:block}
           <div class="ev up" style="--p:92.31%"><i></i><div class="ev-c"><span class="mono">2025 · April 2025</span><b>Seoul Peace Prize</b></div></div>
           <div class="ev" style="--p:100.00%"><i></i><div class="ev-c"><span class="mono">2026 · Charity Navigator · Sept 2026</span><b>Perfect 100 Score</b></div></div>
         </div>
-        <button class="pin" data-n="15" style="left:-14px;top:-14px" aria-label="Design note 15">15</button>
       </div>
 
       <details class="drawer archive"><summary>All 44 archived ratings, awards and honors <span class="c" aria-hidden="true">+</span></summary>
@@ -1331,7 +1315,6 @@ body.notes .pin{display:block}
         <details class="qa"><summary><span>Does Direct Relief take government money?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>No. Direct Relief does not accept government funding. It's privately funded by individuals, companies and foundations.</p></div></details>
         <details class="qa"><summary><span>Can I choose where my gift goes?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>Yes. A gift for a specific emergency or program is used only for that purpose, including directly related administrative costs. If that isn't possible, Direct Relief offers your money back. <a href="#">Donation policy</a></p></div></details>
         <details class="qa"><summary><span>Can I donate medicine I have at home?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>No. Industry regulations prevent Direct Relief from accepting unrequested or individual prescription donations from the public. Medicine comes from manufacturers and licensed distributors.</p></div></details>
-        <button class="pin" data-n="16" style="right:-10px;top:-12px" aria-label="Design note 16">16</button>
       </div>
     </div>
   </section>
@@ -1357,7 +1340,6 @@ body.notes .pin{display:block}
         <button type="submit" class="btn btn-give big" id="give-btn">Give $50 now</button>
         <p class="give-msg mono" id="give-msg" hidden>Prototype only. No payment is taken.</p>
         <p class="secure mono"><span>Secure checkout</span><span>501(c)(3) · EIN 95-1831116</span><span>Tax-deductible</span></p>
-        <button class="pin" data-n="17" style="left:-12px;top:-12px" aria-label="Design note 17">17</button>
       </form>
     </div>
     <div class="wrap">
@@ -1398,41 +1380,12 @@ body.notes .pin{display:block}
 </div>
 </div>
 
-<aside class="notes-panel" id="notes" hidden aria-label="Design notes">
-  <h4>Design notes</h4>
-  <span class="mono" style="font-family:var(--f-label);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase">DR-1881 · Chain of Custody · v4 · shipping boxes</span>
-  <ol>
-    <li data-n="1"><span><b>Live status strip</b>Shows Direct Relief working right now (after World Central Kitchen and Team Rubicon). Editors manage the list; it hides when nothing is active. On mobile only the top emergency shows.</span></li>
-    <li data-n="2"><span><b>Hero: ink band, offset tiles, routes</b>Susan's hero order, rebuilt. The photo sits on rotated orange and amber tiles taken from the logo mark. Dot matrix and dashed shipping routes add texture. The tag is now a photo caption.</span></li>
-    <li data-n="3"><span><b>Three logo cards, no carousel</b>Charity Navigator, CharityWatch and Forbes, each with its logo and one result. They overlap the hero for depth and link out to verify. BBB and Candid are covered in the methods section. A streak bar shows 15 straight four-star years.</span></li>
-    <li data-n="4"><span><b>One person, on a tile</b>Yaroslava keeps her place beside the money answer from v4, with the photo stacked above the story. Newsreader carries the quote, and Schibsted Grotesk carries the photo credit.</span></li>
-    <li data-n="5"><span><b>Copy to confirm with finance</b>"0% to fundraising" comes from v4. The financials section reports $3.5M fundraising expense and $2.95 per $100. Add one line connecting them before launch.</span></li>
-    <li data-n="6"><span><b>46:1 gets its own band</b>Promoted out of the Impact panel. The headline is the plain-language claim; the ratio is the visual.</span></li>
-    <li data-n="7"><span><b>Drawn to scale</b>The unit chart and the bars are both true to the numbers: 1 against 46, and 2.15% against 100%. Squares pop in once on first view, and reduced motion shows them static.</span></li>
-    <li data-n="8"><span><b>Dot-matrix map, shipments in motion</b>Land is a 2° dot grid baked from Natural Earth, so nothing loads at runtime. Dashed routes run from Santa Barbara to every story on the page, with small packets moving along them. The two cumulative milestones float over the ocean, and labels drop on small screens.</span></li>
-    <li data-n="9"><span><b>Time-scaled stat</b>29,657 deliveries a year works out to one every 17.7 minutes. The clock hand turns slowly as an ambient cue.</span></li>
-    <li data-n="10"><span><b>The route is the story spine</b>v4's About band, How medicines reach patients, Disaster response and four story blocks become one sticky route. The stop list tracks your scroll and each stop carries one story. On mobile it becomes a single dashed line with stacked stops.</span></li>
-    <li data-n="11"><span><b>One view: % of total expenses</b>The all-expenses / cash-only toggle and the 3-year average boxes are gone. The carton and the 100 squares show the audited FY2025 split (99.31% / 0.54% / 0.15% of $2.31B). The cash-only figures stay in the expense table drawer.</span></li>
-    <li data-n="12"><span><b>Tables go in drawers</b>The full expense table and accounting notes stay one click away for analysts, keeping the section to one screen.</span></li>
-    <li data-n="13"><span><b>Methods as questions</b>Each evaluator card leads with the question it answers, then how it scores, then Direct Relief's result. The question lines are our draft copy. The full comparison tables from the prototype stay word for word in the drawers below.</span></li>
-    <li data-n="14"><span><b>Rank plates</b>Embossed plates for Devex No. 1, Forbes No. 5 and NPT No. 14. Americares leads with Forbes No. 8, so this is a quiet point of difference.</span></li>
-    <li data-n="15"><span><b>Timeline drawn to scale</b>Years are evenly spaced from 2013 to 2026, with 8 highlights above and below the axis. All 44 archived items stay in one drawer, grouped as in the prototype. On mobile it becomes a vertical list.</span></li>
-    <li data-n="16"><span><b>Straight answers</b>Six FAQs, in the Save the Children style. Mark them up as FAQPage structured data so search and AI answers can quote them. The fundraising answer needs the same finance check as note 5.</span></li>
-    <li data-n="17"><span><b>Give band</b>The one gradient on the page: orange and amber light on ink, with grain. The amount chips and monthly toggle are a working mock; wire them to Direct Relief's donation platform in build. Nothing submits here.</span></li>
-    <li data-n="18"><span><b>Confirm the streak</b>The prototype's archive lists a Charity Navigator four-star rating and perfect score dated Sept 13, 2026, after the 15th consecutive rating in Nov 2025. The seal now says Sept 2026. Confirm whether the streak is now 16.</span></li>
-    <li data-n="19"><span><b>The money ships in a carton</b>Replaces the receipt. A kraft box with an "Expenses" shipping label listing each purpose as a % of total. The rubber stamp echoes the stamp language in Direct Relief's own recent launch. The 100 squares become parcels on a pallet.</span></li>
-    <li data-n="20"><span><b>Paperwork as shipping tags</b>The annual report, audit, 990 and policies hang as manila tags on one line. They straighten on hover.</span></li>
-  </ol>
-</aside>
-
 <div class="toolbar" role="toolbar" aria-label="Preview controls">
   <span class="vtag">v4</span>
   <!-- <a class="vlink" href="https://claude.ai/artifact/4XBNhkKJDhZuQbL3t4Cwgs">Compare v3 ↗</a> -->
   <span class="sep" aria-hidden="true"></span>
   <button type="button" id="b-desk" aria-pressed="true">Desktop</button>
   <button type="button" id="b-375" aria-pressed="false">375</button>
-  <span class="sep" aria-hidden="true"></span>
-  <button type="button" id="b-notes" aria-pressed="false">Design notes</button>
 </div>
 
 <script>
@@ -1449,12 +1402,9 @@ body.notes .pin{display:block}
       var raf=0;s.addEventListener('pointermove',function(e){if(raf)return;raf=requestAnimationFrame(function(){raf=0;var r=s.getBoundingClientRect();s.style.setProperty('--x',(e.clientX-r.left)+'px');s.style.setProperty('--y',(e.clientY-r.top)+'px');});});
     });
   }
-  var bd=document.getElementById('b-desk'),bm=document.getElementById('b-375'),bn=document.getElementById('b-notes'),panel=document.getElementById('notes');
+  var bd=document.getElementById('b-desk'),bm=document.getElementById('b-375');
   function mode(m){document.body.classList.toggle('m375',m);bd.setAttribute('aria-pressed',!m);bm.setAttribute('aria-pressed',m);try{localStorage.setItem('dr-mode-v4',m?'375':'desk')}catch(e){}}
   bd.onclick=function(){mode(false)};bm.onclick=function(){mode(true)};
-  function notes(on){document.body.classList.toggle('notes',on);panel.hidden=!on;bn.setAttribute('aria-pressed',on);}
-  bn.onclick=function(){notes(!document.body.classList.contains('notes'))};
-  document.querySelectorAll('.pin').forEach(function(p){p.onclick=function(){notes(true);panel.querySelectorAll('li').forEach(function(li){li.classList.toggle('hl',li.dataset.n===p.dataset.n);if(li.dataset.n===p.dataset.n)li.scrollIntoView({block:'nearest'});});};});
   try{if(localStorage.getItem('dr-mode-v4')==='375')mode(true)}catch(e){}
 })();
 </script>

@@ -23,4 +23,6 @@ for link in $(grep -oE 'href="\.\./v[0-9]+/"' "$here/$v/index.html" | sed -E 's/
 done
 # claude.ai artifacts are private to us, so the client can't open them.
 sed -i '' -E 's#<a class="vlink" href="https://claude\.ai/[^"]*">[^<]*</a>#<!-- & -->#' "$here/$v/index.html"
+# Design notes are for us, not the client.
+python3 "$here/strip-notes.py" "$here/$v/index.html"
 echo "Published $v -> $here/$v"
