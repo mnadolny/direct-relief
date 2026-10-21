@@ -21,4 +21,6 @@ done
 for link in $(grep -oE 'href="\.\./v[0-9]+/"' "$here/$v/index.html" | sed -E 's/.*\.\.\/(v[0-9]+)\/.*/\1/' | sort -u); do
   [ -d "$here/$link" ] || sed -i '' -E "s#<a class=\"vlink\" href=\"\.\./$link/\">[^<]*</a>#<!-- & -->#" "$here/$v/index.html"
 done
+# claude.ai artifacts are private to us, so the client can't open them.
+sed -i '' -E 's#<a class="vlink" href="https://claude\.ai/[^"]*">[^<]*</a>#<!-- & -->#' "$here/$v/index.html"
 echo "Published $v -> $here/$v"

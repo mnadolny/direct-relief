@@ -1,0 +1,1537 @@
+<!doctype html>
+<html lang="en">
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why Direct Relief Hi-Fi v4</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: Susan v4 hierarchy (hero, ratings, person + money, 46:1) rendered as a chain-of-custody record: ink bands, paper sheets, seals with stubs, offset tiles from the logo mark. Single light look by design: this mocks a light website. */
+/* Updated from the Figma edits (Desktop 1440, 42:26): labels set in Schibsted Grotesk (the .mono class name stays), most section eyebrows removed, logo ratings cards, stacked story card, % expense label, quote card with photo. */
+:root{
+  color-scheme:light;
+  --paper:#F0EFEB;
+  --surface:#FFFFFF;
+  --ink:#10222D;
+  --ink-2:#4A5A63;
+  --rule:#D3D4CF;
+  --orange:#FE5000;
+  --orange-text:#A9400C;
+  --amber:#FFA200;
+  --steel:#648AA0;
+  --band:#10222D;
+  --on-band:#EEEDE8;
+  --on-band-2:#A5B4BD;
+  --chrome:#D9D7D1;
+  --e1:0 1px 1px rgba(16,34,45,.06),0 2px 4px rgba(16,34,45,.05);
+  --e2:0 1px 1px rgba(16,34,45,.05),0 4px 8px rgba(16,34,45,.06),0 12px 24px rgba(16,34,45,.08);
+  --e3:0 2px 2px rgba(16,34,45,.06),0 8px 16px rgba(16,34,45,.08),0 28px 56px rgba(16,34,45,.14);
+  --hi:inset 0 1px 0 rgba(255,255,255,.8);
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-read:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-label:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+body{background:var(--chrome);color:var(--ink);margin:0;font-family:var(--f-read);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+/* presentation frame */
+.stage{padding-bottom:96px;transition:padding .3s}
+.site{container:site/inline-size;background:var(--paper);margin:0 auto;width:100%;position:relative;overflow:clip}
+.site::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--grain);background-size:160px;opacity:.05;z-index:30}
+body.m375 .stage{padding-top:32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body.m375 .site{width:375px;max-width:100%;border-radius:28px;box-shadow:0 0 0 10px #1a1d1f,0 30px 60px rgba(0,0,0,.25)}
+
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}
+@container site (max-width:600px){.wrap{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-label);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;font-weight:500}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+p{margin:0}
+
+/* status strip */
+.status{background:var(--orange);color:var(--ink)}
+.status .wrap{display:flex;align-items:center;gap:10px 18px;min-height:38px;padding-block:7px;flex-wrap:wrap}
+.status .live{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.status .live i{width:8px;height:8px;border-radius:50%;background:var(--ink);position:relative}
+.status .live i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--ink);animation:ping 2s ease-out infinite}
+@keyframes ping{from{transform:scale(.5);opacity:1}to{transform:scale(1.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.status .live i::after{animation:none;opacity:0}}
+.status nav{display:flex;gap:6px 18px;flex-wrap:wrap;font-family:var(--f-display);font-weight:600;font-size:.88rem}
+.status nav a{text-decoration:none;border-bottom:1px solid rgba(16,34,45,.4)}
+.status nav a:hover{border-bottom-color:var(--ink)}
+.status .all{margin-left:auto;text-decoration:none}
+@container site (max-width:600px){.status nav a:nth-child(n+2){display:none}.status .all{display:none}}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(240,239,235,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;min-height:72px}
+.hdr .logo img{height:37px;width:auto}
+.hdr nav{display:flex;gap:28px;margin-left:auto;font-family:var(--f-display);font-weight:600;font-size:.92rem;letter-spacing:.02em;text-transform:uppercase}
+.hdr nav a{text-decoration:none}
+.hdr nav a:hover{color:var(--orange-text)}
+.icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.icon-btn:hover{background:rgba(16,34,45,.07)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:44px;padding:0 22px;border-radius:3px;font-family:var(--f-display);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn-give{background:var(--orange);color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 2px 0 #C53E00,0 6px 14px rgba(254,80,0,.28)}
+.btn-give:hover{transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 3px 0 #C53E00,0 10px 20px rgba(254,80,0,.32)}
+.btn-give:active{transform:translateY(1px);box-shadow:0 1px 0 #C53E00}
+.btn-ghost{background:transparent;color:var(--on-band);box-shadow:inset 0 0 0 1.5px rgba(238,237,232,.45)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--on-band)}
+.menu{display:none}
+@container site (max-width:900px){.hdr nav{display:none}.menu{display:grid}.hdr .wrap{gap:8px}.hdr .spacer{margin-left:auto}}
+@container site (max-width:600px){.hdr .wrap{min-height:60px}.hdr .logo img{height:26px}.hdr .btn{height:38px;padding:0 14px;font-size:.82rem}.hdr .search{display:none}}
+
+/* hero */
+.hero{background:var(--band);color:var(--on-band);position:relative;overflow:hidden;padding-block:72px 168px}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(238,237,232,.14) 1.1px,transparent 1.5px);background-size:16px 16px;-webkit-mask-image:radial-gradient(ellipse 55% 80% at 80% 40%,#000 15%,transparent 75%);mask-image:radial-gradient(ellipse 55% 80% at 80% 40%,#000 15%,transparent 75%);pointer-events:none}
+.hero .routes{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;opacity:.55}
+.hero .routes path{fill:none;stroke:var(--orange);stroke-width:1.2;stroke-dasharray:2 6;vector-effect:non-scaling-stroke}
+.hero .grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center}
+.hero h1{font-weight:900;font-stretch:66%;font-size:clamp(3.6rem,8.6cqi,7.6rem);line-height:.86;letter-spacing:-.015em;text-transform:uppercase}
+.hero h1 .pre{display:block;font-size:.605em;line-height:.92}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .lede{margin-top:18px;max-width:46ch;font-size:1.12rem;line-height:1.55;color:var(--on-band-2)}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.hero .ctas .btn{height:52px;padding:0 28px;font-size:1rem}
+
+.frame{position:relative;max-width:640px;justify-self:end;width:100%}
+.frame::before,.frame::after{content:"";position:absolute;inset:0;border-radius:6px}
+.frame::before{background:var(--amber);transform:rotate(4.5deg) translate(18px,-8px)}
+.frame::after{background:var(--orange);transform:rotate(-2.5deg) translate(-12px,10px)}
+.frame figure{position:relative;z-index:1;margin:0;border-radius:6px;overflow:hidden;box-shadow:var(--e3);aspect-ratio:4/3;background:#2a3640}
+.frame img{width:100%;height:100%;object-fit:cover;object-position:58% 45%}
+.frame figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(16,34,45,.65))}
+.play{position:absolute;left:18px;bottom:18px;z-index:2;display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1rem}
+.play span.ic{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);display:grid;place-items:center;transition:background .2s}
+.play:hover span.ic{background:var(--orange)}
+.play small{display:block;font-family:var(--f-label);font-weight:500;font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;opacity:.8}
+.tag{position:absolute;z-index:2;top:18px;right:-14px;width:250px;max-width:calc(100% - 24px);background:var(--surface);padding:10px 14px 10px 12px;border-radius:3px;box-shadow:var(--e2);transform:rotate(1.5deg);font-family:var(--f-display);font-weight:600;font-size:.74rem;line-height:1.1;color:#7E5C33} /* INVENTED: darker kraft; Figma's #B38652 is 3.1:1 on white, this is 6:1 */
+@container site (max-width:900px){
+  .hero{padding-block:48px 132px}
+  .hero .grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .frame{justify-self:stretch;max-width:none;margin-inline:8px}
+}
+@container site (max-width:600px){
+  .hero{padding-block:36px 104px}
+  .hero h1{font-size:clamp(3rem,16cqi,4.4rem)}
+  .hero .lede{font-size:1rem}
+  .hero .ctas .btn{flex:1 1 auto}
+  .tag{right:-6px;top:12px}
+  .play{left:12px;bottom:12px}
+}
+
+/* ratings seals */
+.ratings{position:relative;z-index:2;margin-top:-112px;padding-bottom:28px}
+.seals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.seal{position:relative;background:var(--surface);border-radius:8px;box-shadow:var(--e3),var(--hi);padding:18px 18px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;overflow:hidden;isolation:isolate;text-decoration:none;color:var(--ink);transition:transform .25s ease,box-shadow .25s ease}
+.seal::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(240px circle at var(--x,50%) var(--y,0%),rgba(255,162,0,.18),transparent 62%);opacity:0;transition:opacity .25s}
+@media (hover:hover) and (pointer:fine){.seal:hover{transform:translateY(-4px)}.seal:hover::before{opacity:1}}
+@media (prefers-reduced-motion:reduce){.seal{transition:none}.seal:hover{transform:none}}
+.seal .logo{height:123px;display:grid;place-items:center}
+.seal .logo img{max-height:123px;width:auto}
+.seal .score{padding-top:10px;font-family:var(--f-display);font-weight:900;font-stretch:66%;font-size:3.9rem;line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.seal .what{padding-top:6px;font-size:.94rem;line-height:1.35;color:var(--ink-2)}
+.ratings .foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--rule)}
+.ratings .foot .mono{color:var(--ink-2)}
+.ratings .foot .streak{display:flex;align-items:center;gap:10px}
+.streakbar{display:flex;gap:3px}
+.streakbar i{width:6px;height:14px;background:var(--orange);border-radius:1px;opacity:.9}
+.arrow-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:1rem;text-decoration:none;color:var(--ink)}
+.arrow-link .c{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--orange);display:grid;place-items:center;color:var(--orange-text);transition:background .2s,color .2s}
+.arrow-link:hover .c{background:var(--orange);color:var(--ink)}
+@container site (max-width:760px){
+  .ratings{margin-top:-76px}
+  .seals{grid-template-columns:minmax(0,1fr);gap:12px}
+  .seal{display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:auto auto;align-content:center;text-align:left;gap:2px 16px;padding:16px 18px}
+  .seal .logo{grid-row:1/3;height:64px}
+  .seal .logo img{max-height:64px}
+  .seal .score{padding-top:0;font-size:2.8rem}
+  .seal .what{padding-top:0;font-size:.92rem}
+}
+
+/* person + money */
+.pm{padding-block:72px 96px}
+.pm .grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:64px;align-items:start}
+@container site (max-width:900px){.pm .grid{grid-template-columns:minmax(0,1fr);gap:56px}}
+@container site (max-width:600px){.pm{padding-block:48px 64px}}
+.story{position:relative;background:var(--surface);border-radius:6px;box-shadow:var(--e2),var(--hi);padding:28px;display:flex;flex-direction:column;gap:28px}
+@container site (max-width:600px){.story{padding:20px;gap:22px}}
+.story .ph{position:relative}
+.story .imgw{position:relative;display:block}
+.story .imgw::before{content:"";position:absolute;inset:0;border-radius:4px;background:var(--orange);transform:rotate(-3deg) translate(-8px,8px)}
+.story .ph img{position:relative;border-radius:4px;width:100%;aspect-ratio:12/5;object-fit:cover;object-position:50% 40%;box-shadow:var(--e2)}
+@container site (max-width:600px){.story .ph img{aspect-ratio:4/3;object-position:40% 45%}}
+.story .ph figcaption{margin-top:20px;color:var(--ink-2);font-size:.62rem;line-height:1.5}
+.story .txt{display:flex;flex-direction:column;gap:14px;min-width:0}
+.story h3{font-size:1.9rem;font-weight:800;font-stretch:80%;line-height:1.02;letter-spacing:-.005em}
+.story p{font-size:1.06rem;line-height:1.55;color:var(--ink-2)}
+.story blockquote{margin:6px 0 0;padding:16px 0 0;border-top:1px solid var(--rule)}
+.story blockquote p{font-family:var(--f-read);font-style:italic;font-size:1.42rem;line-height:1.28;color:var(--ink);font-weight:400}
+.story blockquote p::before{content:"\201C";color:var(--orange);font-style:normal;font-weight:700;margin-right:2px}
+.story blockquote footer{margin-top:10px;color:var(--ink-2)}
+.story .arrow-link{margin-top:auto;padding-top:8px}
+
+.money h2{font-size:clamp(2.2rem,4cqi,3rem);font-weight:900;font-stretch:72%;line-height:.95;letter-spacing:-.01em}
+.money .intro{margin-top:14px;color:var(--ink-2);font-size:1.06rem;line-height:1.55;max-width:46ch}
+.manifest{margin-top:28px;background:var(--surface);border-radius:4px;box-shadow:var(--e1)}
+.manifest .head{display:flex;justify-content:space-between;gap:12px;padding:12px 20px;border-bottom:1px solid var(--rule);color:var(--ink-2);font-size:.64rem}
+.line{display:grid;grid-template-columns:118px minmax(0,1fr);gap:20px;padding:20px;border-bottom:1px dashed var(--rule);align-items:start}
+.line:last-child{border-bottom:0}
+.line .fig{font-family:var(--f-display);font-weight:900;font-stretch:66%;font-size:3.4rem;line-height:.85;font-variant-numeric:tabular-nums;color:var(--ink)}
+.line .fig.o{color:var(--orange)}
+.line h3{font-size:1.12rem;font-weight:700;font-stretch:95%}
+.line p{margin-top:4px;font-size:.98rem;line-height:1.5;color:var(--ink-2)}
+@container site (max-width:600px){.line{grid-template-columns:84px minmax(0,1fr);gap:14px;padding:16px}.line .fig{font-size:2.6rem}}
+.inkind{margin-top:16px;display:flex;gap:14px;padding:16px 18px;border-radius:4px;background:rgba(100,138,160,.12);font-size:.94rem;line-height:1.5;color:var(--ink-2)}
+.inkind b{color:var(--ink);font-family:var(--f-display)}
+.inkind .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--steel);color:#fff;display:grid;place-items:center;font-family:var(--f-read);font-style:italic;font-weight:700;font-size:.85rem;margin-top:1px}
+
+/* 46:1 band */
+.lev{background:var(--band);color:var(--on-band);position:relative;overflow:hidden;padding-block:104px}
+.lev::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(238,237,232,.11) 1.1px,transparent 1.5px);background-size:16px 16px;-webkit-mask-image:linear-gradient(100deg,transparent 10%,#000 70%);mask-image:linear-gradient(100deg,transparent 10%,#000 70%);pointer-events:none}
+.lev .wrap{position:relative}
+.lev .top{display:grid;grid-template-columns:auto minmax(0,1fr);gap:56px;align-items:end}
+.lev .ratio{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:clamp(7rem,19cqi,15rem);line-height:.78;color:var(--orange);letter-spacing:-.025em;font-variant-numeric:tabular-nums;text-shadow:0 1px 0 rgba(255,255,255,.08)}
+.lev h2{font-size:clamp(1.7rem,3.2cqi,2.6rem);font-weight:700;font-stretch:85%;line-height:1.08;max-width:22ch}
+.lev h2 b{color:var(--orange);font-weight:800}
+.lev .top p{margin-top:16px;color:var(--on-band-2);font-size:1.06rem;line-height:1.55;max-width:52ch}
+@container site (max-width:900px){.lev .top{grid-template-columns:minmax(0,1fr);gap:24px}}
+@container site (max-width:600px){.lev{padding-block:64px}.lev .ratio{font-size:8.4rem}}
+
+.viz{margin-top:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;padding-top:40px;border-top:1px solid rgba(238,237,232,.16)}
+@container site (max-width:900px){.viz{grid-template-columns:minmax(0,1fr);gap:40px}}
+.viz h3{font-family:var(--f-label);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;font-weight:500;color:var(--on-band-2);margin-bottom:16px}
+.units{display:flex;flex-wrap:wrap;gap:5px;width:100%;max-width:520px}
+.units i{width:calc((100% - 75px) / 16);aspect-ratio:1;border-radius:2px;background:var(--orange);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.units i.cost{background:var(--on-band)}
+.units.popin i{animation:pop .5s cubic-bezier(.2,.8,.3,1.2) backwards;animation-delay:calc(var(--i) * 22ms)}
+@keyframes pop{from{transform:scale(.4);opacity:.15}}
+@media (prefers-reduced-motion:reduce){.units.popin i{animation:none}}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px;color:var(--on-band-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+.bars{display:flex;flex-direction:column;gap:22px}
+.bar .lab{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:8px}
+.bar .lab span{font-size:1rem;color:var(--on-band-2)}
+.bar .lab b{font-family:var(--f-display);font-weight:800;font-stretch:80%;font-size:1.5rem;font-variant-numeric:tabular-nums}
+.bar .track{height:18px;border-radius:2px;background:rgba(238,237,232,.07);overflow:hidden}
+.bar .fill{height:100%;background:var(--orange);border-radius:2px;width:100%}
+.bar.cost .fill{background:var(--on-band);width:2.15%;min-width:4px}
+.bars .note{color:var(--on-band-2)}
+.per100{display:flex;gap:14px;align-items:baseline;padding-top:18px;border-top:1px solid rgba(238,237,232,.16);flex-wrap:wrap}
+.per100 b{font-family:var(--f-display);font-weight:900;font-stretch:70%;font-size:2.4rem;color:var(--on-band);line-height:1}
+.per100 span{color:var(--on-band-2);font-size:1rem}
+.how{margin-top:48px;border-top:1px solid rgba(238,237,232,.16)}
+.how summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.how summary::-webkit-details-marker{display:none}
+.how summary .c{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--orange);display:grid;place-items:center;color:var(--orange);transition:transform .2s}
+.how[open] summary .c{transform:rotate(45deg)}
+.how .in{padding-bottom:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;color:var(--on-band-2);font-size:.98rem;line-height:1.55}
+.how .in b{display:block;color:var(--on-band);font-family:var(--f-display);margin-bottom:4px}
+@container site (max-width:760px){.how .in{grid-template-columns:minmax(0,1fr)}}
+.lev .src{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--on-band-2);padding-top:18px;border-top:1px solid rgba(238,237,232,.16)}
+.lev .src a{color:var(--on-band);text-underline-offset:3px}
+
+/* shared section heads (light) */
+.sec-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.eyebrow-d{display:block;color:var(--ink-2);margin-bottom:18px}
+.sec-head h2{font-size:clamp(2.2rem,4.4cqi,3.6rem);font-weight:900;font-stretch:70%;line-height:.95;letter-spacing:-.01em;max-width:18ch}
+.impact .sec-head h2{max-width:none}
+.sec-lede{color:var(--ink-2);font-size:1.06rem;line-height:1.55;max-width:46ch}
+@container site (max-width:900px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+
+/* impact + map */
+.impact{padding-block:104px 96px}
+@container site (max-width:600px){.impact{padding-block:64px}}
+.mapcard{margin-top:44px;background:var(--surface);border-radius:8px;box-shadow:var(--e2),var(--hi);padding:28px 28px 18px}
+.maparea{position:relative}
+.world{display:block;width:100%;height:auto}
+.world .land{fill:none;stroke:rgba(16,34,45,.24);stroke-width:5.2;stroke-linecap:round}
+.world .rpath{fill:none;stroke:var(--orange);stroke-width:2.2;stroke-dasharray:4 7;opacity:.85}
+.world .packet{fill:var(--orange);stroke:#fff;stroke-width:2}
+.world .pin-m .t1{fill:var(--orange)}
+.world .pin-m .t2{fill:var(--amber)}
+.world .hq .core{fill:var(--ink);stroke:#fff;stroke-width:3}
+.world .hq .ring{fill:none;stroke:var(--ink);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:hqp 2.4s ease-out infinite}
+@keyframes hqp{from{transform:scale(.5);opacity:.9}to{transform:scale(1.9);opacity:0}}
+.world .lbl{font:600 19px var(--f-display);fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round}
+.world .lbl2{font:500 14px var(--f-label);letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-2);paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round}
+@media (prefers-reduced-motion:reduce){.world .hq .ring{animation:none;opacity:0}.world .packet{display:none}}
+.milestone{position:absolute;width:min(250px,28%);background:var(--surface);border-radius:4px;padding:14px 16px;box-shadow:var(--e3),var(--hi);display:flex;flex-direction:column;gap:4px}
+.milestone .mono{color:var(--ink-2);font-size:.6rem}
+.milestone b{font-family:var(--f-display);font-weight:900;font-stretch:68%;font-size:2.6rem;line-height:.95;color:var(--ink)}
+.milestone p{font-size:.86rem;line-height:1.4;color:var(--ink-2)}
+.m-us{left:2%;bottom:6%;transform:rotate(-1.2deg)}
+.m-ua{right:1%;top:2%;transform:rotate(1deg)}
+.maplegend{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);color:var(--ink-2)}
+.maplegend span{display:inline-flex;align-items:center;gap:8px}
+.maplegend i{display:inline-block;width:12px;height:12px}
+.lg-hq{border-radius:50%;background:var(--ink)}
+.lg-pin{background:var(--orange);border-radius:2px;transform:rotate(-5deg);box-shadow:3px -2px 0 var(--amber)}
+.lg-route{height:0!important;width:22px!important;border-top:2px dashed var(--orange)}
+@container site (max-width:900px){.world .lbl,.world .lbl2{display:none}}
+@container site (max-width:760px){
+  .mapcard{padding:16px 12px 14px}
+  .world .land{stroke-width:7.4;stroke:rgba(16,34,45,.3)}
+  .world .rpath{stroke-width:3.4}
+  .milestone{position:static;width:auto;transform:none;box-shadow:var(--e1);margin-top:10px}
+}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border-radius:6px;overflow:hidden;box-shadow:var(--e2);margin:28px 28px 0;position:relative;z-index:2}
+.stats>div{background:var(--surface);padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.stats .mono{color:var(--ink-2);font-size:.64rem}
+.stats b{font-family:var(--f-display);font-weight:900;font-stretch:66%;font-size:clamp(2.6rem,5cqi,3.8rem);line-height:.9;font-variant-numeric:tabular-nums;color:var(--orange)}
+.stats p{font-size:.92rem;line-height:1.4;color:var(--ink-2)}
+.ddd summary{cursor:pointer;font-size:.92rem;color:var(--ink);text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px;list-style:none}
+.ddd summary::-webkit-details-marker{display:none}
+.ddd p{margin-top:6px}
+@container site (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));margin:20px 12px 0}}
+@container site (max-width:600px){.stats{margin:16px 0 0}.stats>div{padding:16px}}
+.cadence{margin-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;border:1px dashed var(--rule);border-radius:6px}
+.cadence p{font-size:1.06rem;color:var(--ink-2)}
+.cadence p b{font-family:var(--f-display);color:var(--ink);font-weight:800;font-size:1.25rem;font-stretch:85%;margin-right:6px}
+.cadence p span{font-family:var(--f-label);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase}
+.cadence .src2{margin-left:auto;color:var(--ink-2)}
+.clock{width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink);position:relative;flex:none}
+.clock i{position:absolute;left:50%;top:50%;width:2px;height:12px;background:var(--orange);transform-origin:50% 0;transform:translateX(-50%) rotate(180deg);animation:hand 18s linear infinite;border-radius:1px}
+.clock::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
+@keyframes hand{to{transform:translateX(-50%) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){.clock i{animation:none}}
+
+/* route */
+.route{background:var(--band);color:var(--on-band);padding-block:96px;position:relative}
+.route::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(238,237,232,.08) 1.1px,transparent 1.5px);background-size:16px 16px;pointer-events:none}
+.rgrid{position:relative;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:72px;align-items:start}
+.rside{position:sticky;top:calc(110px + env(safe-area-inset-top,0px))}
+.route h2{font-size:clamp(2.2rem,4.2cqi,3.4rem);font-weight:900;font-stretch:70%;line-height:.95;letter-spacing:-.01em}
+.rlede{margin-top:18px;color:var(--on-band-2);font-size:1.06rem;line-height:1.55;max-width:44ch}
+.rfacts{margin-top:16px;color:var(--on-band);opacity:.75;font-size:.62rem;line-height:1.7}
+.stops{list-style:none;margin:36px 0 0;padding:0;position:relative;display:flex;flex-direction:column;gap:0}
+.stops::before{content:"";position:absolute;left:15px;top:16px;bottom:16px;border-left:2px dashed rgba(238,237,232,.25)}
+.stops::after{content:"";position:absolute;left:15px;top:16px;width:2px;height:calc((100% - 32px) * var(--prog,0));background:var(--orange);transition:height .5s ease}
+.stops li{position:relative;display:grid;grid-template-columns:32px minmax(0,1fr);gap:16px;align-items:center;padding:12px 0;color:var(--on-band-2);transition:color .3s}
+.stops .n{width:32px;height:32px;border-radius:4px;display:grid;place-items:center;background:var(--band);box-shadow:inset 0 0 0 1.5px rgba(238,237,232,.3);position:relative;z-index:1;font-size:.66rem;transition:background .3s,box-shadow .3s,transform .3s}
+.stops b{display:block;font-family:var(--f-display);font-size:1.15rem;font-weight:800;font-stretch:85%;color:inherit}
+.stops em{font-style:normal;font-size:.95rem}
+.stops li.on{color:var(--on-band)}
+.stops li.on .n{background:var(--orange);color:var(--ink);box-shadow:3px -3px 0 var(--amber);transform:rotate(-5deg)}
+.stops li.done .n{box-shadow:inset 0 0 0 1.5px var(--orange);color:var(--orange)}
+@media (prefers-reduced-motion:reduce){.stops::after,.stops li,.stops .n{transition:none}}
+.steps{display:flex;flex-direction:column;gap:80px;padding-top:8px}
+.step{display:flex;flex-direction:column;gap:14px;opacity:.45;transition:opacity .4s}
+.step.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.step{transition:none}}
+.sph{margin:0 0 10px;position:relative}
+.sph::before{content:"";position:absolute;left:0;top:0;width:100%;aspect-ratio:2/1;border-radius:6px;background:var(--orange);transform:translate(-23px,-12px) rotate(-2.6deg) scale(.97,1.03)}
+.step:nth-child(even) .sph::before{background:var(--amber);transform:translate(67px,13px) rotate(2deg) scale(.83,.92)}
+.sph img{position:relative;width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:6px;box-shadow:var(--e3)}
+.sph figcaption{margin-top:14px;color:var(--on-band-2);font-size:.6rem}
+.step .kick{color:var(--orange)}
+.step h3{font-size:clamp(1.8rem,3cqi,2.4rem);font-weight:800;font-stretch:78%;line-height:1}
+.step>p{color:var(--on-band-2);font-size:1.06rem;line-height:1.6;max-width:56ch}
+.story-chip{margin-top:6px;background:rgba(238,237,232,.06);box-shadow:inset 0 0 0 1px rgba(238,237,232,.14);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.story-chip .mono{color:var(--amber);font-size:.62rem}
+.story-chip p{font-family:var(--f-read);font-size:1.08rem;line-height:1.5;color:var(--on-band)}
+.story-chip.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.story-chip.two>div{display:flex;flex-direction:column;gap:6px}
+.arrow-link.sm{font-size:.92rem;color:var(--on-band);margin-top:4px}
+.arrow-link.sm .c{width:22px;height:22px;font-size:.8rem;color:var(--orange)}
+.cred{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--on-band-2);font-size:.6rem}
+.cred span::before{content:"✓ ";color:var(--orange)}
+.phases{padding-top:32px;border-top:1px solid rgba(238,237,232,.16)}
+.phases>.mono{color:var(--on-band-2)}
+.ph3{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ph3>div{padding:16px;border-radius:4px;background:rgba(238,237,232,.05);box-shadow:inset 0 0 0 1px rgba(238,237,232,.12)}
+.ph3 b{font-family:var(--f-display);font-size:1.1rem;font-weight:800;font-stretch:85%}
+.ph3 p{margin-top:4px;font-size:.92rem;line-height:1.45;color:var(--on-band-2)}
+@container site (max-width:900px){
+  .rgrid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .rside{position:static}
+  .stops{display:none}
+  .steps{gap:72px;padding-left:28px;position:relative}
+  .steps::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:2px dashed rgba(254,80,0,.6)}
+  .step{opacity:1}
+  .step .kick{position:relative}
+  .step .kick::before{content:"";position:absolute;left:-36px;top:-1px;width:14px;height:14px;border-radius:3px;background:var(--orange);transform:rotate(-6deg);box-shadow:0 0 0 4px var(--band)}
+}
+@container site (max-width:600px){
+  .route{padding-block:64px}
+  .story-chip.two,.ph3{grid-template-columns:minmax(0,1fr)}
+  .sph::before{transform:translate(-8px,-6px) rotate(-2.6deg) scale(.97,1.03)}
+  .step:nth-child(even) .sph::before{transform:translate(18px,6px) rotate(2deg) scale(.9,.94)}
+}
+
+/* money */
+.money2{padding-block:104px 96px}
+@container site (max-width:600px){.money2{padding-block:64px}}
+.mgrid{margin-top:40px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+@container site (max-width:900px){.mgrid{grid-template-columns:minmax(0,1fr);gap:40px}}
+.receipt2{position:relative;background:var(--surface);padding:24px 24px 30px;border-radius:4px 4px 0 0;box-shadow:var(--e3);font-family:var(--f-label);font-size:.86rem;transform:rotate(-1.5deg);max-width:400px;width:100%;justify-self:center}
+.receipt2::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--surface) 0) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,var(--surface) 0) 0 0/14px 10px;background-repeat:repeat-x}
+.rc-top{display:flex;flex-direction:column;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px dashed var(--ink-2)}
+.rc-top .mono{font-size:.62rem;color:var(--ink-2);text-align:center}
+.receipt2 dl{margin:16px 0 0;display:grid;grid-template-columns:1fr auto;gap:10px 12px;font-variant-numeric:tabular-nums}
+.receipt2 dt,.receipt2 dd{margin:0}
+.receipt2 dd{text-align:right;transition:opacity .2s}
+.receipt2 .tot{border-top:1px dashed var(--ink-2);padding-top:12px;font-weight:600}
+.rc-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px;font-size:.58rem;color:var(--ink-2)}
+.barcode{margin-top:14px;height:34px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 12px);opacity:.85}
+.mviz .headline{display:flex;flex-direction:column;gap:8px}
+.mviz .headline b{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:clamp(4.4rem,9cqi,7rem);line-height:.82;color:var(--orange);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.mviz .headline p{font-size:1.12rem;line-height:1.45;color:var(--ink-2);max-width:420px}
+.g100{margin-top:24px;display:flex;flex-wrap:wrap;gap:4px;max-width:340px}
+.g100 i{width:calc((100% - 36px) / 10);aspect-ratio:1;border-radius:2px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22);transition:background-color .3s}
+.glegend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;color:var(--ink-2)}
+.glegend span{display:inline-flex;gap:8px;align-items:center}
+.glegend i{width:12px;height:12px;border-radius:2px;display:inline-block}
+.support{margin-top:56px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 40px;align-items:center;padding:24px;background:var(--surface);border-radius:6px;box-shadow:var(--e1)}
+.sup-l{display:flex;flex-direction:column;gap:4px}
+.sup-l .mono{color:var(--ink-2);font-size:.64rem}
+.sup-l b{font-family:var(--f-display);font-weight:900;font-stretch:66%;font-size:3.2rem;line-height:.9}
+.stack2{display:flex;height:18px;border-radius:2px;overflow:hidden;gap:2px}
+.stack2 i:first-child{background:var(--ink)}
+.stack2 i:last-child{background:var(--orange)}
+.sup-k{margin-top:12px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 24px;font-size:.94rem;line-height:1.45;color:var(--ink-2)}
+.sup-k b{display:block;font-family:var(--f-display);color:var(--ink);font-size:1rem}
+@container site (max-width:760px){.support{grid-template-columns:minmax(0,1fr)}.sup-k{grid-template-columns:minmax(0,1fr)}}
+.drawers{margin-top:32px;border-top:1px solid var(--rule)}
+.drawer{border-bottom:1px solid var(--rule)}
+.drawer summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.drawer summary::-webkit-details-marker{display:none}
+.drawer summary .c{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--orange);display:grid;place-items:center;color:var(--orange-text);transition:transform .2s;flex:none}
+.drawer[open] summary .c{transform:rotate(45deg)}
+.drawer>p{padding-bottom:20px;color:var(--ink-2);font-size:1rem;line-height:1.55;max-width:70ch}
+.tblw{overflow-x:auto;padding-bottom:20px}
+.tblw table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95rem;background:var(--surface);border-radius:4px;box-shadow:var(--e1)}
+.tblw th,.tblw td{padding:12px 16px;text-align:right;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+.tblw th:first-child,.tblw td:first-child{text-align:left}
+.tblw th{font-family:var(--f-label);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:var(--ink-2)}
+.tblw small{display:block;font-size:.75rem;color:var(--ink-2)}
+.tblw .tt td{font-weight:700;border-bottom:0;border-top:2px solid var(--ink)}
+.docs{margin-top:40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.docs a{position:relative;display:flex;flex-direction:column;gap:30px;justify-content:space-between;min-height:132px;padding:18px;background:var(--surface);border-radius:2px 8px 4px 4px;box-shadow:var(--e1),var(--hi);text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.docs a::before{content:"";position:absolute;left:0;top:-10px;width:44%;height:12px;background:var(--surface);border-radius:6px 6px 0 0}
+.docs a::after{content:"→";position:absolute;right:18px;bottom:16px;color:var(--orange-text);font-family:var(--f-display);font-weight:700}
+.docs a:hover{transform:translateY(-3px);box-shadow:var(--e2),var(--hi)}
+.docs .mono{color:var(--orange-text)}
+.docs b{font-family:var(--f-display);font-size:1.08rem;font-weight:700;padding-right:24px;line-height:1.2}
+@media (prefers-reduced-motion:reduce){.docs a{transition:none}.docs a:hover{transform:none}}
+@container site (max-width:900px){.docs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container site (max-width:420px){.docs{grid-template-columns:minmax(0,1fr)}.docs a{min-height:92px}}
+
+/* methods */
+.methods{padding-block:104px 72px;border-top:1px solid var(--rule)}
+@container site (max-width:600px){.methods{padding-block:64px 48px}}
+.qlist{margin-top:44px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.q{background:var(--surface);border-radius:6px;box-shadow:var(--e1),var(--hi);padding:20px;display:flex;flex-direction:column;gap:12px;position:relative}
+.q::before{content:"";position:absolute;left:20px;right:20px;top:0;height:3px;background:var(--orange);border-radius:0 0 2px 2px;transform:scaleX(.18);transform-origin:left;transition:transform .35s}
+@media (hover:hover){.q:hover::before{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.q::before{transition:none}}
+.q-who{display:flex;flex-direction:column;gap:6px;padding-bottom:12px;border-bottom:1px dashed var(--rule)}
+.q-who b{font-family:var(--f-display);font-size:1rem;font-weight:700}
+.res{font-family:var(--f-display);font-weight:900;font-stretch:68%;font-size:2rem;line-height:1;color:var(--orange)}
+.q-ask{font-family:var(--f-read);font-style:italic;font-size:1.18rem;line-height:1.3;color:var(--ink)}
+.q-how{font-size:.92rem;line-height:1.5;color:var(--ink-2)}
+@container site (max-width:1060px){.qlist{grid-template-columns:repeat(2,minmax(0,1fr))}.q:last-child{grid-column:span 2}}
+@container site (max-width:600px){.qlist{grid-template-columns:minmax(0,1fr)}.q:last-child{grid-column:auto}}
+
+.bigquote{margin:72px 0 0;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 400px;background:var(--surface);border-radius:8px;overflow:hidden;box-shadow:var(--e2),var(--hi)}
+.bq-body{position:relative;padding:44px 48px 40px 120px}
+.bq-mark{position:absolute;left:36px;top:44px;transform:rotate(-1deg)}
+.bq-mark .sk{width:53px;height:61px}
+.bq-mark .sk img{height:61px}
+.bigquote blockquote{margin:0}
+.bigquote p{font-family:var(--f-read);font-size:clamp(1.5rem,2.8cqi,2.3rem);line-height:1.22;font-weight:400;color:var(--ink);text-wrap:pretty}
+.bigquote figcaption{margin-top:20px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.bigquote figcaption b{font-family:var(--f-display)}
+.bigquote figcaption .mono{color:var(--ink-2)}
+.bq-ph{margin:0;position:relative;min-height:100%}
+.bq-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+@container site (max-width:900px){.bigquote{grid-template-columns:minmax(0,1fr)}.bq-ph{min-height:0;aspect-ratio:16/9}}
+@container site (max-width:600px){.bq-body{padding:96px 22px 26px}.bq-mark{left:22px;top:24px}.bq-mark .sk{width:38px;height:44px}.bq-mark .sk img{height:44px}}
+
+.ranks{margin-top:56px}
+.ranks-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px 24px;flex-wrap:wrap}
+.ranks-h h3{font-size:1.5rem;font-weight:800;font-stretch:85%}
+.ranks-h .mono{color:var(--ink-2)}
+.plates{margin-top:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.plate{position:relative;padding:20px 22px;border-radius:6px;background:linear-gradient(180deg,#fff,#F6F5F1);box-shadow:var(--e1),inset 0 0 0 1px rgba(16,34,45,.08),inset 0 2px 0 #fff;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 1fr;gap:4px 18px;align-items:center}
+.plate .mono{grid-column:1/-1;color:var(--ink-2)}
+.plate b{display:flex;align-items:center;gap:2px;font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:4.4rem;line-height:.85;color:var(--ink);text-shadow:0 1px 0 #fff}
+.plate b small{font-size:1rem;line-height:1;font-stretch:90%;font-weight:700;color:var(--orange-text)}
+.plate p{font-size:.94rem;line-height:1.4;color:var(--ink-2)}
+@container site (max-width:760px){.plates{grid-template-columns:minmax(0,1fr)}}
+.methods .drawers{margin-top:40px}
+.tl td,.tl th{text-align:left!important;vertical-align:top;font-variant-numeric:normal}
+.tl td:first-child{font-family:var(--f-display);font-weight:700;white-space:nowrap}
+.tl{min-width:760px!important}
+.yn i{font-style:normal;font-family:var(--f-label);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.yn i.y{background:rgba(254,80,0,.12);color:var(--orange-text)}
+.yn i.n{background:rgba(16,34,45,.06);color:var(--ink-2)}
+
+/* recognition */
+.recog{padding-block:96px;background:var(--surface);position:relative}
+.recog::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(16,34,45,.07) 1.1px,transparent 1.5px);background-size:16px 16px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 40%);mask-image:linear-gradient(180deg,#000,transparent 40%);pointer-events:none}
+.recog .wrap{position:relative}
+@container site (max-width:600px){.recog{padding-block:64px}}
+.honors{margin-top:44px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
+@container site (max-width:900px){.honors{grid-template-columns:minmax(0,1fr)}}
+.honor{background:var(--paper);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 0 0 1px rgba(16,34,45,.06)}
+.honor .mono{color:var(--orange-text)}
+.honor b{font-family:var(--f-display);font-size:1.4rem;font-weight:800;font-stretch:85%;line-height:1.1}
+.honor p{color:var(--ink-2);font-size:.98rem;line-height:1.5}
+.lead-h{margin:0;background:var(--band);color:var(--on-band);padding:36px;box-shadow:var(--e2);position:relative;overflow:hidden}
+.lead-h::after{content:"";position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;border-radius:12px;background:var(--orange);opacity:.14;transform:rotate(-8deg)}
+.lead-h .mono{color:var(--amber)}
+.lead-h blockquote{margin:6px 0 0}
+.lead-h blockquote p{font-family:var(--f-read);font-size:clamp(1.3rem,2.2cqi,1.75rem);line-height:1.32;color:var(--on-band);text-wrap:pretty}
+.lead-h figcaption{color:var(--on-band-2);font-size:.95rem}
+.lead-h figcaption b{font-size:1rem;color:var(--on-band)}
+.lead-h .arrow-link{color:var(--on-band);margin-top:8px;position:relative;z-index:1}
+.lead-h .arrow-link .c{color:var(--orange)}
+@container site (max-width:600px){.lead-h{padding:24px}}
+.honor-side{display:grid;grid-template-rows:auto auto;gap:20px}
+.arrow-link.sm2{font-size:.92rem}
+.arrow-link.sm2 .c{width:22px;height:22px}
+.stk{display:flex;gap:4px;margin-top:4px}
+.stk i{flex:1;height:22px;border-radius:2px;background:var(--orange);opacity:.35}
+.stk i:nth-child(n+6){opacity:.55}.stk i:nth-child(n+11){opacity:.8}
+.stk i.last{opacity:1;box-shadow:0 0 0 2px var(--paper),0 0 0 3.5px var(--orange)}
+
+.tline{margin-top:56px;overflow-x:auto;padding-block:8px;scrollbar-width:thin}
+.tl-track{position:relative;min-width:980px;height:250px;margin-inline:70px}
+.tl-axis{position:absolute;left:0;right:0;top:50%;border-top:2px solid var(--ink)}
+.tick{position:absolute;left:var(--p);top:50%;width:1px;height:10px;background:var(--ink);transform:translate(-.5px,-4px)}
+.tick em{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-style:normal;color:var(--ink-2);font-size:.62rem}
+.ev{position:absolute;left:var(--p);top:50%;width:0}
+.ev i{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:3px;background:var(--orange);transform:rotate(-6deg);box-shadow:0 0 0 3px var(--surface)}
+.ev::before{content:"";position:absolute;left:-1px;width:2px;background:var(--rule);top:12px;height:34px}
+.ev.up::before{top:auto;bottom:12px}
+.ev-c{position:absolute;left:-12px;top:48px;width:150px;display:flex;flex-direction:column;gap:3px}
+.ev.up .ev-c{top:auto;bottom:48px}
+.ev-c .mono{font-size:.58rem;color:var(--ink-2)}
+.ev-c b{font-family:var(--f-display);font-size:.98rem;font-weight:700;line-height:1.15;font-stretch:92%}
+.ev:last-child .ev-c,.ev:nth-last-child(2) .ev-c{left:auto;right:-12px;text-align:right}
+@container site (max-width:760px){
+  .tline{overflow:visible}
+  .tl-track{min-width:0;height:auto;margin:0;padding-left:28px;display:flex;flex-direction:column;gap:20px}
+  .tl-axis{left:6px;right:auto;top:0;bottom:0;border-top:0;border-left:2px solid var(--ink)}
+  .tick{display:none}
+  .ev,.ev.up{position:relative;left:auto;top:auto;width:auto}
+  .ev i{left:-29px;top:3px}
+  .ev::before{display:none}
+  .ev-c,.ev.up .ev-c,.ev:last-child .ev-c,.ev:nth-last-child(2) .ev-c{position:static;width:auto;text-align:left}
+}
+.archive{margin-top:40px;border-top:1px solid var(--rule)}
+.arch-cols{columns:2 320px;column-gap:40px;padding-bottom:24px}
+.ag{break-inside:avoid-column;margin-bottom:24px}
+.ag h4{margin:0 0 8px;color:var(--ink);display:flex;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.ag h4 span{color:var(--orange-text)}
+.ag ul{list-style:none;margin:0;padding:0}
+.ag li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:.94rem;line-height:1.35}
+.ag li em{font-style:normal;color:var(--ink-2);font-size:.62rem;white-space:nowrap;padding-top:3px}
+.press{margin-top:48px}
+.press h3{color:var(--ink-2);font-size:.72rem}
+.press-row{margin-top:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.press-row a{display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--paper);border-radius:6px;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(16,34,45,.06);transition:box-shadow .2s,transform .2s}
+.press-row a:hover{box-shadow:var(--e2);transform:translateY(-2px)}
+.press-row .mono{color:var(--ink-2);font-size:.58rem}
+.press-row b{font-family:var(--f-display);font-size:1.2rem;font-weight:800;font-stretch:90%}
+.press-row b.serifname{font-family:var(--f-read);font-weight:700;font-stretch:100%;font-size:1.3rem}
+.press-row p{font-size:.92rem;line-height:1.45;color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){.press-row a{transition:none}.press-row a:hover{transform:none}}
+@container site (max-width:900px){.press-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container site (max-width:480px){.press-row{grid-template-columns:minmax(0,1fr)}}
+
+/* faq */
+.faq{padding-block:104px}
+@container site (max-width:600px){.faq{padding-block:64px}}
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.faq-side{position:sticky;top:calc(110px + env(safe-area-inset-top,0px))}
+.faq-side h2{font-size:clamp(2.2rem,4.2cqi,3.4rem);font-weight:900;font-stretch:70%;line-height:.95;letter-spacing:-.01em}
+.faq-side .sec-lede{margin-top:16px}
+@container site (max-width:900px){.faq-grid{grid-template-columns:minmax(0,1fr);gap:32px}.faq-side{position:static}}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.qa{background:var(--surface);border-radius:6px;box-shadow:var(--e1),var(--hi);transition:box-shadow .2s}
+.qa[open]{box-shadow:var(--e2),var(--hi)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;font-family:var(--f-display);font-weight:700;font-size:1.15rem;font-stretch:92%}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .c{width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--orange);display:grid;place-items:center;color:var(--orange-text);flex:none;transition:transform .2s,background .2s}
+.qa[open] summary .c{transform:rotate(45deg);background:var(--orange);color:var(--ink)}
+.qa-a{padding:0 22px 22px}
+.qa-a p{font-size:1.06rem;line-height:1.6;color:var(--ink-2);max-width:62ch}
+.qa-a a{color:var(--orange-text);font-family:var(--f-display);font-weight:700;font-size:.95rem;white-space:nowrap}
+
+/* give */
+.give{position:relative;overflow:hidden;color:var(--on-band);padding-block:104px 72px;background:radial-gradient(60% 90% at 12% 10%,rgba(254,80,0,.55),transparent 65%),radial-gradient(50% 80% at 92% 95%,rgba(255,162,0,.38),transparent 65%),var(--band)}
+.give::before{content:"";position:absolute;inset:0;background-image:var(--grain);background-size:160px;opacity:.12;mix-blend-mode:overlay;pointer-events:none}
+.give .wrap{position:relative}
+@container site (max-width:600px){.give{padding-block:64px 48px}}
+.give-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+@container site (max-width:900px){.give-grid{grid-template-columns:minmax(0,1fr);gap:36px}}
+.give h2{font-size:clamp(2.6rem,5.4cqi,4.6rem);font-weight:900;font-stretch:66%;line-height:.92;letter-spacing:-.01em;text-transform:uppercase}
+.give-copy p{margin-top:20px;font-size:1.12rem;line-height:1.55;color:var(--on-band);opacity:.85;max-width:46ch}
+.give-card{background:var(--surface);color:var(--ink);border-radius:10px;padding:24px;box-shadow:0 30px 60px rgba(0,0,0,.35),var(--hi);display:flex;flex-direction:column;gap:18px}
+.freq{display:grid;grid-template-columns:1fr 1fr;padding:4px;background:var(--paper);border-radius:999px}
+.freq button{border:0;background:transparent;font:700 .92rem/1 var(--f-display);padding:11px;border-radius:999px;cursor:pointer;color:var(--ink-2)}
+.freq button[aria-pressed="true"]{background:var(--ink);color:var(--on-band)}
+.amts{border:0;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.amts legend{color:var(--ink-2);margin-bottom:10px;padding:0}
+.amts label{position:relative;display:block}
+.amts input[type=radio]{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.amts label>span{display:grid;place-items:center;height:52px;border-radius:6px;box-shadow:inset 0 0 0 1.5px var(--rule);font-family:var(--f-display);font-weight:800;font-size:1.15rem;transition:box-shadow .15s,background .15s}
+.amts input[type=radio]:checked+span{box-shadow:inset 0 0 0 2px var(--orange);background:rgba(254,80,0,.08)}
+.amts input[type=radio]:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.amts .other{display:flex;align-items:center;height:52px;border-radius:6px;box-shadow:inset 0 0 0 1.5px var(--rule);padding-left:12px}
+.amts .other .cur{font-family:var(--f-display);font-weight:800;color:var(--ink-2)}
+.amts .other input{border:0;background:transparent;width:100%;min-width:0;height:100%;font:700 1.05rem var(--f-display);padding:0 8px 0 4px;color:var(--ink)}
+.amts .other input:focus{outline:none}
+.amts .other:focus-within{box-shadow:inset 0 0 0 2px var(--orange)}
+@container site (max-width:420px){.amts{grid-template-columns:repeat(3,minmax(0,1fr))}.amts .other{grid-column:1/-1}}
+.btn.big{height:58px;font-size:1.1rem;width:100%}
+.give-msg{color:var(--orange-text);text-align:center}
+.secure{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;color:var(--ink-2);font-size:.58rem}
+.ways{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ways a{position:relative;display:flex;flex-direction:column;gap:8px;padding:20px 52px 20px 20px;border-radius:8px;text-decoration:none;color:var(--on-band);background:rgba(238,237,232,.06);box-shadow:inset 0 0 0 1px rgba(238,237,232,.16);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s}
+.ways a:hover{background:rgba(238,237,232,.12)}
+.ways .mono{color:var(--amber);font-size:.6rem}
+.ways b{font-family:var(--f-display);font-size:1.1rem;font-weight:700;line-height:1.25}
+.ways .go{position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--orange);font-family:var(--f-display);font-weight:800}
+@container site (max-width:760px){.ways{grid-template-columns:minmax(0,1fr)}}
+.privnote{margin-top:24px;font-size:.92rem;line-height:1.5;color:var(--on-band-2);max-width:80ch}
+.privnote a{color:var(--on-band)}
+
+/* footer */
+.foot2{background:#0A161D;color:var(--on-band);padding-block:64px 32px}
+.news{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:start;padding-bottom:48px;border-bottom:1px solid rgba(238,237,232,.14)}
+.news h2{font-size:clamp(1.8rem,3cqi,2.4rem);font-weight:800;font-stretch:80%;line-height:1}
+.news p{margin-top:10px;color:var(--on-band-2)}
+.news-form label{color:var(--on-band-2);display:block;margin-bottom:8px}
+.nf-row{display:flex;gap:8px}
+.nf-row input{flex:1;min-width:0;height:48px;border-radius:3px;border:0;padding:0 14px;font:400 1rem var(--f-read);background:rgba(238,237,232,.08);color:var(--on-band);box-shadow:inset 0 0 0 1px rgba(238,237,232,.2)}
+.nf-row input::placeholder{color:var(--on-band-2)}
+.nf-row input:focus{outline:2px solid var(--orange);outline-offset:1px}
+.nf-row .btn{height:48px}
+.nf-msg{margin-top:8px;color:var(--amber)}
+@container site (max-width:760px){.news{grid-template-columns:minmax(0,1fr)}}
+.fcols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,1fr));gap:32px;padding-block:48px}
+.fbrand img{height:30px;width:auto}
+.addr{margin-top:16px;color:var(--on-band-2);font-size:.95rem;line-height:1.5}
+.social{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.62rem}
+.social a{color:var(--on-band-2);text-decoration:none}
+.social a:hover{color:var(--on-band)}
+.fcols nav{display:flex;flex-direction:column;gap:10px;font-size:.95rem}
+.fcols nav b{color:var(--on-band);margin-bottom:6px;font-size:.66rem}
+.fcols nav a{color:var(--on-band-2);text-decoration:none}
+.fcols nav a:hover{color:var(--on-band)}
+.fcols nav span{color:var(--on-band-2)}
+@container site (max-width:900px){.fcols{grid-template-columns:repeat(2,minmax(0,1fr))}.fbrand{grid-column:1/-1}}
+.fbase{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding-top:24px;border-top:1px solid rgba(238,237,232,.14);color:var(--on-band-2);font-size:.6rem}
+
+/* v4: shipping carton, parcels, tags, stamps */
+.site{--kraft:#C99D66;--kraft-2:#B38652;--kraft-3:#9C7343;--manila:#EBD3A0;--stampink:#B23A0E;
+  --inkmask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.4 0 0 0 1.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.carton{position:relative;width:100%;max-width:470px;justify-self:center;padding-top:38px}
+.flaps{position:absolute;left:0;right:0;top:0;height:42px;display:flex;gap:3px}
+.flaps i{flex:1;background:linear-gradient(180deg,var(--kraft-2),var(--kraft))}
+.flaps i:first-child{clip-path:polygon(0 100%,3% 22%,97% 0,100% 100%);filter:brightness(.92)}
+.flaps i:last-child{clip-path:polygon(0 100%,3% 0,97% 26%,100% 100%)}
+.face{position:relative;background:linear-gradient(90deg,rgba(0,0,0,.07),transparent 7%,transparent 93%,rgba(0,0,0,.08)),repeating-linear-gradient(90deg,rgba(110,70,25,.06) 0 2px,transparent 2px 7px),var(--kraft);border-radius:2px 2px 4px 4px;padding:40px 26px 30px;box-shadow:var(--e3),inset 0 1px 0 rgba(255,255,255,.28)}
+.face::after{content:"";position:absolute;inset:0;background-image:var(--grain);background-size:160px;opacity:.22;mix-blend-mode:multiply;pointer-events:none;border-radius:inherit}
+.tape{position:absolute;left:50%;top:-38px;width:78px;height:72px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(255,255,255,.18),transparent 30%),rgba(232,214,174,.82);box-shadow:0 1px 1px rgba(0,0,0,.1);z-index:1}
+.slabel{position:relative;z-index:2;background:#FBFAF6;border-radius:2px;padding:16px 18px;box-shadow:0 1px 2px rgba(0,0,0,.2),0 8px 18px rgba(60,40,10,.22);transform:rotate(-1.2deg);font-family:var(--f-label);font-size:.86rem;color:var(--ink)}
+.sl-head{display:flex;gap:12px;align-items:center;padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.sl-head b{display:block;font-family:var(--f-display);font-weight:900;font-stretch:70%;text-transform:uppercase;font-size:1.55rem;line-height:1}
+.sl-head .mono{display:block;font-size:.56rem;line-height:1.45;color:var(--ink-2)}
+.sk{display:block;width:38px;height:44px;overflow:hidden;flex:none}
+.sk img{height:44px;width:auto;max-width:none;display:block}
+.sl-contents{padding-top:12px}
+.sl-contents>.mono{font-size:.56rem;line-height:1.45;color:var(--ink-2)}
+.slabel dl{margin:10px 0 0;display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-variant-numeric:tabular-nums}
+.slabel dt,.slabel dd{margin:0}
+.slabel dd{text-align:right}
+.slabel .tot{border-top:2px solid var(--ink);padding-top:8px;font-weight:600}
+.sl-foot{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.sl-foot .barcode{margin-top:0;height:30px}
+.sl-foot .mono{font-size:.52rem;color:var(--ink-2)}
+.rstamp{position:absolute;z-index:3;right:-22px;top:22px;width:112px;height:112px;color:var(--stampink);transform:rotate(14deg);opacity:.88;-webkit-mask-image:var(--inkmask);mask-image:var(--inkmask);-webkit-mask-size:140px;mask-size:140px}
+.rstamp text{fill:currentColor;font:600 10.5px var(--f-label);letter-spacing:.12em}
+.rstamp .rs-big{font:900 23px var(--f-display);font-stretch:70%;letter-spacing:0}
+.rstamp .rs-sm{font:600 7.5px var(--f-label);letter-spacing:.1em}
+.handling{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:20px;color:rgba(35,22,8,.78)}
+.handling svg{width:32px;height:32px}
+.handling .mono{font-size:.58rem;line-height:1.45;color:rgba(35,22,8,.78)}
+@container site (max-width:600px){.face{padding:36px 14px 24px}.slabel{padding:14px}.rstamp{width:84px;height:84px;right:-10px;top:14px}}
+.palletwrap{margin-top:24px;max-width:340px}
+.palletwrap .g100{margin-top:0;max-width:none}
+.g100 i{position:relative}
+.g100 i::after{content:"";position:absolute;left:41%;width:18%;top:0;bottom:0;background:rgba(255,255,255,.3)}
+.pallet{display:flex;flex-direction:column;gap:2px;margin-top:5px}
+.pallet i{display:block;height:6px;background:var(--kraft-2);border-radius:1px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.18)}
+.pallet i:nth-child(2){height:9px;background:linear-gradient(90deg,var(--kraft-3) 0 10%,transparent 10% 45%,var(--kraft-3) 45% 55%,transparent 55% 90%,var(--kraft-3) 90%);box-shadow:none}
+.tags{margin-top:52px}
+.tags-k{color:var(--ink-2)}
+.tag-row{margin-top:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding-top:30px;position:relative}
+.tag-row::before{content:"";position:absolute;left:0;right:0;top:4px;height:2px;background:var(--kraft-2);border-radius:2px}
+.stag{position:relative;display:block;text-decoration:none;color:var(--ink);transform-origin:50% -26px;transform:rotate(var(--r,0deg));transition:transform .5s cubic-bezier(.3,1.7,.5,1);filter:drop-shadow(0 8px 10px rgba(16,34,45,.16))}
+.stag:nth-child(1){--r:-2deg}.stag:nth-child(2){--r:1.6deg}.stag:nth-child(3){--r:-1deg}.stag:nth-child(4){--r:2.2deg}
+@media (hover:hover){.stag:hover{--r:0deg}}
+@media (prefers-reduced-motion:reduce){.stag{transition:none}}
+.stag::before{content:"";position:absolute;left:50%;top:-26px;height:46px;width:2px;background:var(--kraft-3);transform:translateX(-50%);z-index:2}
+.tb{display:flex;flex-direction:column;gap:10px;min-height:150px;padding:40px 18px 18px;background:linear-gradient(170deg,#F2DFB2,var(--manila));clip-path:polygon(16% 0,84% 0,100% 14%,100% 100%,0 100%,0 14%)}
+.hole{position:absolute;left:50%;top:13px;width:13px;height:13px;border-radius:50%;background:var(--paper);box-shadow:0 0 0 4px #D2B271;transform:translateX(-50%);z-index:1}
+.tb .mono{color:var(--orange-text);font-size:.58rem}
+.tb b{font-family:var(--f-display);font-size:1.08rem;font-weight:800;line-height:1.2;padding-right:20px}
+.tb .go{position:absolute;right:16px;bottom:14px;color:var(--orange-text);font-family:var(--f-display);font-weight:800}
+@container site (max-width:900px){.tag-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:44px}.tag-row::before{display:none}}
+@container site (max-width:420px){.tag-row{grid-template-columns:minmax(0,1fr)}.tb{min-height:112px}}
+.sticker{position:absolute;z-index:3;right:-16px;bottom:-20px;width:80px;height:80px;border-radius:50%;background:#fff;box-shadow:var(--e2),inset 0 0 0 4px #fff,inset 0 0 0 5.5px rgba(254,80,0,.4);display:grid;place-items:center;transform:rotate(-12deg)}
+@container site (max-width:600px){.sticker{right:-4px;bottom:-16px;width:64px;height:64px}.sticker .sk{transform:scale(.8)}}
+.btn-ghost{position:relative}
+.btn-ghost::after{content:"";position:absolute;inset:-5px;border:1.5px solid var(--orange);border-radius:4px;transform:rotate(-1.2deg);pointer-events:none;opacity:.85}
+.toolbar .vlink{color:#cfd4d6;font:600 .8rem/1 var(--f-display);letter-spacing:.03em;padding:10px 14px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.toolbar .vlink:hover{background:#2a2f31}
+@media (max-width:520px){#b-desk,#b-375,.toolbar .sep{display:none}}
+.toolbar .vtag{color:#15191b;background:var(--amber);font:700 .72rem/1 var(--f-label);padding:9px 10px;border-radius:999px;align-self:center}
+
+/* continues teaser */
+.cont{padding-block:56px 72px;position:relative}
+.cont .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--ink-2)}
+.cont .ghost{font-family:var(--f-display);font-weight:900;font-stretch:72%;font-size:2.2rem;color:var(--ink);opacity:.22;letter-spacing:-.01em}
+
+/* design notes */
+.pin{display:none;position:absolute;z-index:25;width:26px;height:26px;border-radius:50%;background:#7A2BD1;color:#fff;font:600 .78rem/26px var(--f-label);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.9),0 4px 10px rgba(0,0,0,.25);cursor:pointer;border:0;padding:0}
+body.notes .pin{display:block}
+.rel{position:relative}
+.notes-panel{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right,0px));top:calc(16px + env(safe-area-inset-top,0px));bottom:calc(88px + env(safe-area-inset-bottom,0px));width:min(340px,calc(100vw - 32px));background:#fff;color:#1b1b1b;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.25);overflow:auto;padding:18px 18px 8px;font-family:var(--f-display)}
+.notes-panel h4{margin:0 0 4px;font-size:1rem}
+.notes-panel .mono{color:#666}
+.notes-panel ol{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:0;counter-reset:n}
+.notes-panel li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid #eee;font-size:.9rem;line-height:1.45;color:#333}
+.notes-panel li::before{counter-increment:n;content:counter(n);width:22px;height:22px;border-radius:50%;background:#7A2BD1;color:#fff;font:600 .72rem/22px var(--f-label);text-align:center}
+.notes-panel li b{display:block;color:#111}
+.notes-panel li.hl{background:#F4ECFD;margin-inline:-18px;padding-inline:18px}
+@media (max-width:760px){.notes-panel{top:auto;height:46vh}}
+
+/* toolbar */
+.toolbar{position:fixed;z-index:70;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;padding:6px;background:#15191b;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.toolbar button{border:0;background:transparent;color:#cfd4d6;font:600 .8rem/1 var(--f-display);letter-spacing:.03em;padding:10px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.toolbar button[aria-pressed="true"]{background:#fff;color:#111}
+.toolbar .sep{width:1px;background:#333;margin:6px 2px}
+</style>
+
+<div class="stage">
+<div class="site" id="site">
+
+  <div class="status" role="region" aria-label="Active emergency responses">
+    <div class="wrap">
+      <span class="live mono"><i aria-hidden="true"></i>Responding now</span>
+      <nav class="rel" aria-label="Emergencies">
+        <a href="https://www.directrelief.org/emergency/venezuela-earthquakes-2026/">Venezuela earthquake</a>
+        <a href="https://www.directrelief.org/">Colombia earthquake</a>
+        <a href="https://www.directrelief.org/">Washington wildfires</a>
+      </nav>
+      <a class="all mono" href="https://www.directrelief.org/">All emergencies →</a>
+      <button class="pin" data-n="1" style="right:12px;top:6px" aria-label="Design note 1">1</button>
+    </div>
+  </div>
+
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#" aria-label="Direct Relief home"><img src="img/dr-logo.svg" alt="Direct Relief" width="181" height="34"></a>
+      <nav aria-label="Main">
+        <a href="#">Work</a><a href="#">News</a><a href="#">About</a><a href="#">Get involved</a>
+      </nav>
+      <span class="spacer"></span>
+      <button class="icon-btn search" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+      <a class="btn btn-give" href="#">Donate</a>
+      <button class="icon-btn menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <svg class="routes" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-20 520 C 200 380, 420 420, 640 250 S 940 80, 1040 120"/>
+      <path d="M-20 560 C 260 520, 520 560, 760 420 S 980 330, 1040 340"/>
+    </svg>
+    <div class="wrap grid">
+      <div>
+        <h1 id="h1"><span class="pre">Why give to</span> <em>Direct Relief?</em></h1>
+        <p class="lede">Independent evaluators give Direct Relief their highest marks. See how donations are used, and what your support makes possible.</p>
+        <div class="ctas">
+          <a class="btn btn-give" href="#">Give now</a>
+          <a class="btn btn-ghost" href="#methods">Review the evidence</a>
+        </div>
+      </div>
+      <div class="frame rel">
+        <figure>
+          <img src="img/hero-aircraft.jpg" alt="A team carries a box labeled Direct Relief emergency medical supplies beside an aircraft.">
+        </figure>
+        <a class="play" href="#" aria-label="Play video: Why Direct Relief">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          <span>Why Direct Relief<small>Watch the film</small></span>
+        </a>
+        <span class="sticker" aria-hidden="true"><span class="sk"><img src="img/dr-logo.svg" alt="" width="232" height="44"></span></span>
+        <p class="tag">Emergency medical supplies arrive in the Democratic Republic of the Congo.</p>
+        <button class="pin" data-n="2" style="left:-12px;top:-12px" aria-label="Design note 2">2</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ratings" aria-labelledby="ratings-h">
+    <div class="wrap rel">
+      <h2 id="ratings-h" class="mono" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Independent ratings</h2>
+      <div class="seals">
+        <a class="seal" href="https://www.charitynavigator.org/">
+          <span class="logo"><img src="img/logo-charity-navigator.png" alt="Charity Navigator" width="123" height="123"></span>
+          <span class="score">100%</span>
+          <span class="what">Four-star rating for 15 consecutive years</span>
+        </a>
+        <a class="seal" href="https://www.charitywatch.org/">
+          <span class="logo"><img src="img/logo-charitywatch.png" alt="CharityWatch" width="122" height="123"></span>
+          <span class="score">A+</span>
+          <span class="what">Financial efficiency</span>
+        </a>
+        <a class="seal" href="https://www.forbes.com/">
+          <span class="logo"><img src="img/logo-forbes.png" alt="Forbes" width="142" height="124"></span>
+          <span class="score">100%</span>
+          <span class="what">Fundraising efficiency</span>
+        </a>
+      </div>
+      <button class="pin" data-n="3" style="left:20px;top:-14px" aria-label="Design note 3">3</button>
+      <div class="foot">
+        <div class="streak"><span class="streakbar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="mono">15 consecutive four-star ratings</span></div>
+        <a class="arrow-link" href="#">How each evaluator measures Direct Relief <span class="c" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm">
+    <div class="wrap grid">
+      <article class="story rel" aria-labelledby="story-h">
+        <figure class="ph" style="margin:0">
+          <span class="imgw"><img src="img/yaroslava.jpg" alt="Yaroslava Koshel outside the Clinical Center of Children's Healthcare in Lviv, Ukraine."></span>
+          <figcaption class="mono">Yaroslava in Lviv, Oct 2024 · Photo: Nick Allen / Direct Relief</figcaption>
+        </figure>
+        <div class="txt">
+          <h3 id="story-h">A treatment. A future she can imagine.</h3>
+          <p>Cystic fibrosis made a short walk hard for Yaroslava Koshel. With Trikafta donated by Vertex and delivered through Direct Relief to hospitals in Ukraine, she's breathing easier.</p>
+          <blockquote><p>Trikafta has given me the possibility to live for many more years.</p><footer class="mono">Yaroslava Koshel · Lviv</footer></blockquote>
+          <a class="arrow-link" href="#">Read Yaroslava's story <span class="c" aria-hidden="true">→</span></a>
+        </div>
+        <button class="pin" data-n="4" style="right:-12px;top:-12px" aria-label="Design note 4">4</button>
+      </article>
+
+      <div class="money rel">
+        <h2>Where does my donation go?</h2>
+        <p class="intro">Straight answers about how gifts are used, before you give.</p>
+        <div class="manifest">
+          <div class="head mono"><span>Your gift</span><span>Policy · FY2025</span></div>
+          <div class="line"><span class="fig o">0%</span><div><h3>To fundraising</h3><p>Fundraising is paid for by endowment earnings and legacy bequests, not your gift.</p></div></div>
+          <div class="line"><span class="fig">100%</span><div><h3>Designated gifts</h3><p>A gift for a specific emergency or program goes only there. If that isn't possible, Direct Relief offers your money back.</p></div></div>
+          <div class="line"><span class="fig">100%</span><div><h3>General gifts</h3><p>Unrestricted gifts go where need is greatest, including long-term health systems and overlooked emergencies.</p></div></div>
+        </div>
+        <div class="inkind"><span class="ic" aria-hidden="true">i</span><p><b>Donating medicine?</b> Direct Relief can't accept unrequested or individual prescription donations from the public because of industry regulations.</p></div>
+        <button class="pin" data-n="5" style="right:0;top:-6px" aria-label="Design note 5">5</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="lev" id="lev" aria-labelledby="lev-h">
+    <div class="wrap">
+      <div class="top rel">
+        <div class="ratio" aria-hidden="true">46:1</div>
+        <div>
+          <h2 id="lev-h"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">46 to 1. </span>About <b>$46 in medicine</b> reaches health providers for every $1 it costs to deliver it.</h2>
+          <p>Manufacturers donate the medicine. Donors fund the warehouse, the cold chain and the flights that get it where it's requested. That's why a gift to Direct Relief moves so much.</p>
+        </div>
+        <button class="pin" data-n="6" style="left:-14px;top:-14px" aria-label="Design note 6">6</button>
+      </div>
+
+      <div class="viz">
+        <div>
+          <h3>Every square is $1</h3>
+          <div class="units" id="units" role="img" aria-label="One light square for one dollar of delivery cost, followed by 46 orange squares for 46 dollars of medical aid."></div>
+          <div class="legend mono"><span><i style="background:var(--on-band)"></i>$1 delivery cost</span><span><i style="background:var(--orange)"></i>$46 medical aid</span></div>
+        </div>
+        <div class="bars rel">
+          <h3 style="margin-bottom:0">Drawn to the same scale</h3>
+          <div class="bar"><div class="lab"><span>Medical material aid delivered</span><b>$1.9B</b></div><div class="track"><div class="fill"></div></div></div>
+          <div class="bar cost"><div class="lab"><span>Program delivery costs</span><b>$40.9M</b></div><div class="track"><div class="fill"></div></div></div>
+          <div class="per100"><b>$2.15</b><span>in delivery costs for every $100 of medical aid</span></div>
+          <button class="pin" data-n="7" style="right:-6px;top:-8px" aria-label="Design note 7">7</button>
+        </div>
+      </div>
+
+      <details class="how">
+        <summary>How this comparison is calculated <span class="c" aria-hidden="true">+</span></summary>
+        <div class="in">
+          <div><b>The aid</b>Medical material aid delivered in FY2025: donated medicines and supplies at fair value, $1.9B.</div>
+          <div><b>The cost</b>Program delivery costs for the same year, $40.9M. Excludes grants, administration and fundraising.</div>
+          <div><b>The ratio</b>$1.9B ÷ $40.9M ≈ 46. Other organizations define leverage differently, so compare definitions, not just ratios.</div>
+        </div>
+      </details>
+      <div class="src mono"><span>Source: FY2025 Annual Report, p. 45</span><a href="#money">See where every dollar goes →</a></div>
+    </div>
+  </section>
+
+  <section class="impact" id="impact" aria-labelledby="impact-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="impact-h">$2.0 billion in medicine and aid, to 92 countries and every U.S. state</h2>
+        </div>
+        <p class="sec-lede">Fiscal year July 1, 2024 to June 30, 2025. Every figure is from the audited FY2025 Annual Report.</p>
+      </div>
+
+      <div class="mapcard rel">
+        <div class="maparea">
+          <svg class="world" viewBox="0 0 1800 670" role="img" aria-labelledby="map-t"><title id="map-t">Map of Direct Relief deliveries: shipping routes from Santa Barbara, California to story locations in West Virginia, Puerto Rico, Colombia, Mali, Ukraine and Tanzania.</title>
+<path class="land" id="land" d=""/>
+<path class="rpath" id="r-wv" d="M251.5 212.9 Q348.9 79.1 446.4 184.7"/>
+<circle class="packet" r="5"><animateMotion dur="6.0s" begin="0.0s" repeatCount="indefinite" rotate="auto"><mpath href="#r-wv"/></animateMotion></circle>
+<path class="rpath" id="r-pr" d="M251.5 212.9 Q384.3 101.7 517.0 293.9"/>
+<circle class="packet" r="5"><animateMotion dur="6.9s" begin="0.7s" repeatCount="indefinite" rotate="auto"><mpath href="#r-pr"/></animateMotion></circle>
+<path class="rpath" id="r-co" d="M251.5 212.9 Q359.1 105.7 466.7 356.6"/>
+<circle class="packet" r="5"><animateMotion dur="7.8s" begin="1.4s" repeatCount="indefinite" rotate="auto"><mpath href="#r-co"/></animateMotion></circle>
+<path class="rpath" id="r-ml" d="M251.5 212.9 Q530.8 78.2 810.0 321.8"/>
+<circle class="packet" r="5"><animateMotion dur="8.7s" begin="2.1s" repeatCount="indefinite" rotate="auto"><mpath href="#r-ml"/></animateMotion></circle>
+<path class="rpath" id="r-ua" d="M251.5 212.9 Q610.8 -11.7 970.1 135.8"/>
+<circle class="packet" r="5"><animateMotion dur="9.6s" begin="2.8s" repeatCount="indefinite" rotate="auto"><mpath href="#r-ua"/></animateMotion></circle>
+<path class="rpath" id="r-tz" d="M251.5 212.9 Q648.8 59.3 1046.0 419.0"/>
+<circle class="packet" r="5"><animateMotion dur="10.5s" begin="3.5s" repeatCount="indefinite" rotate="auto"><mpath href="#r-tz"/></animateMotion></circle>
+<g class="pin-m" transform="translate(446.4 184.7)"><rect class="t2" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(9) translate(2 -1)"/><rect class="t1" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(-5)"/><text class="lbl" x="16" y="5">Wheeling, W.Va.</text><text class="lbl2" x="16" y="24">Inhalers</text></g>
+<g class="pin-m" transform="translate(517.0 293.9)"><rect class="t2" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(9) translate(2 -1)"/><rect class="t1" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(-5)"/><text class="lbl" x="16" y="5">Puerto Rico</text><text class="lbl2" x="16" y="24">Solar power</text></g>
+<g class="pin-m" transform="translate(466.7 356.6)"><rect class="t2" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(9) translate(2 -1)"/><rect class="t1" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(-5)"/><text class="lbl" x="16" y="5">Quibdó, Colombia</text><text class="lbl2" x="16" y="24">Earthquake care</text></g>
+<g class="pin-m" transform="translate(810.0 321.8)"><rect class="t2" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(9) translate(2 -1)"/><rect class="t1" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(-5)"/><text class="lbl" x="16" y="5">Mali</text><text class="lbl2" x="16" y="24">Insulin</text></g>
+<g class="pin-m" transform="translate(970.1 135.8)"><rect class="t2" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(9) translate(2 -1)"/><rect class="t1" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(-5)"/><text class="lbl" x="16" y="5">Lviv & Kyiv, Ukraine</text><text class="lbl2" x="16" y="24">Trikafta, surgery power</text></g>
+<g class="pin-m" transform="translate(1046.0 419.0)"><rect class="t2" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(9) translate(2 -1)"/><rect class="t1" x="-8" y="-8" width="16" height="16" rx="2" transform="rotate(-5)"/><text class="lbl" x="16" y="5">Tanzania</text><text class="lbl2" x="16" y="24">Insulin cold chain</text></g>
+<g class="hq" transform="translate(251.5 212.9)"><circle class="ring" r="16"/><circle class="core" r="8"/><text class="lbl" x="-20" y="5" text-anchor="end">Santa Barbara</text><text class="lbl2" x="-20" y="24" text-anchor="end">Headquarters &amp; warehouse</text></g>
+</svg>
+          <div class="milestone m-us">
+            <span class="mono">U.S. medical aid · since 2008</span>
+            <b>$3.1B</b>
+            <p>Donated medicines and supplies to U.S. nonprofit health providers, at wholesale value.</p>
+          </div>
+          <div class="milestone m-ua">
+            <span class="mono">Ukraine response · since Feb 2022</span>
+            <b>$2.5B+</b>
+            <p>Including donated products at wholesale value and more than $75M in grants.</p>
+          </div>
+        </div>
+        <div class="maplegend mono"><span><i class="lg-hq"></i>Santa Barbara headquarters</span><span><i class="lg-pin"></i>Stories on this page</span><span><i class="lg-route"></i>Shipments in motion</span></div>
+        <button class="pin" data-n="8" style="left:-12px;top:-12px" aria-label="Design note 8">8</button>
+      </div>
+
+      <div class="stats">
+        <div><span class="mono">Total aid delivered</span><b data-count="2.0" data-dec="1" data-pre="$" data-suf="B">$2.0B</b><p>Medical material aid and financial assistance. Includes $68.8M in grants.</p></div>
+        <div><span class="mono">Defined daily doses</span><b data-count="311.9" data-dec="1" data-suf="M">311.9M</b>
+          <details class="ddd"><summary>What's a defined daily dose?</summary><p>A standard measure of the assumed average daily dose of a medicine for its main use in adults. It counts doses, not patients.</p></details></div>
+        <div><span class="mono">Deliveries</span><b data-count="29657" data-dec="0">29,657</b><p>Shipments to health providers.</p></div>
+        <div><span class="mono">Places reached</span><b data-count="92" data-dec="0">92</b><p>Countries, plus all 50 states and 5 U.S. territories.</p></div>
+      </div>
+      <div class="cadence rel">
+        <span class="clock" aria-hidden="true"><i></i></span>
+        <p><b>A delivery every 18 minutes, all year.</b> <span>525,600 minutes ÷ 29,657 deliveries</span></p>
+        <span class="mono src2">Source: FY2025 Annual Report, pp. 7–8</span>
+        <button class="pin" data-n="9" style="right:-10px;top:-12px" aria-label="Design note 9">9</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="route" id="route" aria-labelledby="route-h">
+    <div class="wrap rgrid">
+      <aside class="rside">
+        <h2 id="route-h">From a clinic's request to a patient's hands</h2>
+        <p class="rlede">Local health professionals know their patients and say what's needed. Direct Relief connects those requests with donated medicine, distribution expertise and funding, so providers can focus on care.</p>
+        <p class="rfacts mono">Founded 1948 · Nonpartisan · Nongovernmental · Privately funded</p>
+        <ol class="stops" aria-label="Stops on the route">
+          <li data-step="0" class="on"><span class="n mono">01</span><span><b>Request</b><em>Start with local knowledge</em></span></li>
+          <li data-step="1"><span class="n mono">02</span><span><b>Source</b><em>Turn support into medical aid</em></span></li>
+          <li data-step="2"><span class="n mono">03</span><span><b>Move</b><em>Get medicines there safely</em></span></li>
+          <li data-step="3"><span class="n mono">04</span><span><b>Deliver</b><em>Help a patient get treatment</em></span></li>
+        </ol>
+        <button class="pin" data-n="10" style="left:-14px;top:-14px" aria-label="Design note 10">10</button>
+      </aside>
+
+      <div class="steps">
+        <article class="step" data-step="0">
+          <figure class="sph"><img src="img/wheeling.jpg" alt="Nurse practitioner Linda Shelek and nurse Jennifer Stern during an appointment at Wheeling Health Right." loading="lazy"><figcaption class="mono">Wheeling Health Right, Nov 2025 · Photo courtesy of Wheeling Health Right</figcaption></figure>
+          <span class="kick mono">Stop 01 · Request</span>
+          <h3>Start with local knowledge</h3>
+          <p>The people providing care know what their communities need. Direct Relief works with local clinics and hospitals to identify gaps in care, and the medicines and supplies that can help.</p>
+          <div class="story-chip"><span class="mono">Wheeling, West Virginia</span><p>Uninsured patients at a free clinic get inhalers donated by Teva through Direct Relief, including replacements for ones lost in floods.</p><a class="arrow-link sm" href="#">Medicine access in West Virginia <span class="c" aria-hidden="true">→</span></a></div>
+        </article>
+
+        <article class="step" data-step="1">
+          <figure class="sph"><img src="img/mali-insulin.jpg" alt="A young woman watches as insulin is drawn from a vial into a syringe in Mali." loading="lazy"><figcaption class="mono">Life for a Child, Mali</figcaption></figure>
+          <span class="kick mono">Stop 02 · Source</span>
+          <h3>Turn support into medical aid</h3>
+          <p>Qualified health organizations receive donated medical products at no charge. Direct Relief matches donated medicine with local requests, and financial gifts fill the gaps through purchases and grants.</p>
+          <div class="story-chip"><span class="mono">Life for a Child · since 2011</span><p>Each year, thousands of children with Type 1 diabetes get insulin and supplies through local health providers.</p><a class="arrow-link sm" href="#">Treatment that continues <span class="c" aria-hidden="true">→</span></a></div>
+        </article>
+
+        <article class="step" data-step="2">
+          <figure class="sph"><img src="img/warehouse.jpg" alt="Pallets labeled emergency medical supplies and a forklift operator inside Direct Relief's distribution center." loading="lazy"><figcaption class="mono">Distribution center, Santa Barbara</figcaption></figure>
+          <span class="kick mono">Stop 03 · Move</span>
+          <h3>Get medicines there safely</h3>
+          <p>Medicine needs careful handling at every stage. With transportation and technology partners, Direct Relief manages storage, quality checks and specialized shipping that meet regulatory standards.</p>
+          <div class="story-chip"><span class="mono">Tanzania · late 2025</span><p>Direct Relief funded and sourced pharmaceutical refrigerators for 78 public clinics, room to store insulin safely for more than 6,200 children and young people.</p><a class="arrow-link sm" href="#">Keeping insulin cold in Tanzania <span class="c" aria-hidden="true">→</span></a></div>
+          <p class="cred mono"><span>NABP® Drug Distributor Accreditation</span><span>NABP® OTC Medical Device Distributor Accreditation</span></p>
+        </article>
+
+        <article class="step" data-step="3">
+          <figure class="sph"><img src="img/ukraine-surgery.jpg" alt="A surgical team works under focused lighting in an operating room in Ukraine." loading="lazy"><figcaption class="mono">Surgery in Ukraine. Reliable power is essential to surgical care.</figcaption></figure>
+          <span class="kick mono">Stop 04 · Deliver</span>
+          <h3>Help a patient get treatment</h3>
+          <p>The delivery becomes care in a local health professional's hands, and it has to keep working when the grid doesn't.</p>
+          <div class="story-chip two"><div><span class="mono">Kyiv, Ukraine</span><p>Direct Relief-supplied batteries keep lights on in eight operating rooms at the National Cancer Institute during grid disruptions.</p></div><div><span class="mono">Puerto Rico</span><p>Solar installations at Profamilias clinics keep medicine cold and patients seen during hurricane outages.</p></div></div>
+        </article>
+
+        <div class="phases">
+          <span class="mono">In disasters, the same route runs in three phases</span>
+          <div class="ph3">
+            <div><b>Prepare</b><p>Position supplies before emergencies and keep facilities running when power fails.</p></div>
+            <div><b>Respond</b><p>Get requested medicine, supplies and emergency funding to local providers.</p></div>
+            <div><b>Recover</b><p>Keep treatment going as communities rebuild.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="money2" id="money" aria-labelledby="money-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow-d mono">Financial transparency · FY2025 · Audited</div>
+          <h2 id="money-h">Where the money goes</h2>
+        </div>
+        <p class="sec-lede">Donated medicine makes up most of what Direct Relief spends, which pushes the program share near 100%. Switch to cash only to see the numbers without it.</p>
+      </div>
+
+      <div class="mgrid">
+        <div class="carton rel">
+          <div class="flaps" aria-hidden="true"><i></i><i></i></div>
+          <div class="face">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="slabel">
+              <div class="sl-head"><span class="sk"><img src="img/dr-logo.svg" alt="" width="232" height="44"></span><div><b>Expenses</b><span class="mono">FY2025 · By purpose</span></div></div>
+              <div class="sl-contents">
+                <span class="mono">% of total expenses · $2.31B</span>
+                <dl>
+                  <dt>Program services</dt><dd>99.31%</dd>
+                  <dt>Administration</dt><dd>0.54%</dd>
+                  <dt>Fundraising</dt><dd>0.15%</dd>
+                  <dt class="tot">Total</dt><dd class="tot">100%</dd>
+                </dl>
+              </div>
+              <div class="sl-foot"><div class="barcode" aria-hidden="true"></div><span class="mono">EIN 95-1831116 · FY2025 audited financial statements, pp. 7–8</span></div>
+            </div>
+            <svg class="rstamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="rs-c" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="1.6"/><text><textPath href="#rs-c" startOffset="0">PROGRAM SERVICES · FY2025 ·</textPath></text><text x="60" y="58" text-anchor="middle" class="rs-big">99.31</text><text x="60" y="74" text-anchor="middle" class="rs-sm">% OF TOTAL</text></svg>
+            <div class="handling" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><path d="M12 34V12M12 12l-6 7M12 12l6 7M28 34V12M28 12l-6 7M28 12l6 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/><path d="M4 37h32" stroke="currentColor" stroke-width="3"/></svg>
+              <svg viewBox="0 0 40 40"><path d="M20 4v32M6 12l28 16M34 12L6 28" fill="none" stroke="currentColor" stroke-width="3"/><path d="M15 6l5 4 5-4M15 34l5-4 5 4" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+              <span class="mono">This side up<br>Keep cool</span>
+            </div>
+          </div>
+          <button class="pin" data-n="19" style="right:-8px;top:24px" aria-label="Design note 19">19</button>
+        </div>
+
+        <div class="mviz rel">
+          <div class="headline"><b>99.31%</b><p>of the $2.3 billion in total reported expenses supported medical aid programs.</p></div>
+          <div class="palletwrap"><div class="g100" id="g100" role="img" aria-label="100 squares: 99.31 program services, 0.54 administration, 0.15 fundraising, per 100 dollars of expenses"></div><div class="pallet" aria-hidden="true"><i></i><i></i><i></i></div></div>
+          <div class="glegend mono"><span><i style="background:var(--orange)"></i>Program services</span><span><i style="background:var(--steel)"></i>Administration</span><span><i style="background:var(--ink)"></i>Fundraising</span></div>
+          <button class="pin" data-n="11" style="right:0;top:-6px" aria-label="Design note 11">11</button>
+        </div>
+      </div>
+
+      <div class="support">
+        <div class="sup-l"><span class="mono">Support received · FY2025</span><b>$2.4B</b></div>
+        <div class="sup-r">
+          <div class="stack2" aria-hidden="true"><i style="width:95%"></i><i style="width:5%"></i></div>
+          <div class="sup-k"><span><b>$2.27B · ≈95%</b> Donated medicines, supplies and other resources</span><span><b>$119.3M · ≈5%</b> Financial contributions, which pay for purchases, delivery, grants and operations</span></div>
+        </div>
+      </div>
+
+      <div class="drawers rel">
+        <details class="drawer"><summary>Full FY2025 expense table <span class="c" aria-hidden="true">+</span></summary>
+          <div class="tblw" tabindex="0" role="region" aria-label="FY2025 expenses by purpose">
+            <table>
+              <thead><tr><th>Category</th><th>Cash-based</th><th>In-kind &amp; other noncash</th><th>Total</th></tr></thead>
+              <tbody>
+                <tr><td>Program services</td><td>$121.6M</td><td>$2.17B</td><td>$2.29B <small>99.31%</small></td></tr>
+                <tr><td>Administration</td><td>$12.4M</td><td>$150K</td><td>$12.5M <small>0.54%</small></td></tr>
+                <tr><td>Fundraising</td><td>$3.3M</td><td>$148K</td><td>$3.5M <small>0.15%</small></td></tr>
+                <tr class="tt"><td>Total</td><td>$137.3M</td><td>$2.17B</td><td>$2.31B <small>100%</small></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details class="drawer"><summary>Why support, expenses and aid totals differ <span class="c" aria-hidden="true">+</span></summary><p>Support is recorded when it's received, expenses when they're incurred, and aid when it ships. The three totals cover different timing, so they don't match exactly.</p></details>
+        <details class="drawer"><summary>How donated medicine is valued <span class="c" aria-hidden="true">+</span></summary><p>Donated products are recorded at fair value under U.S. generally accepted accounting principles.</p></details>
+        <button class="pin" data-n="12" style="left:-14px;top:-10px" aria-label="Design note 12">12</button>
+      </div>
+
+      <div class="tags rel">
+        <span class="mono tags-k">Paperwork · FY2025</span>
+        <div class="tag-row">
+          <a class="stag" href="#"><span class="hole" aria-hidden="true"></span><span class="tb"><span class="mono">PDF · Annual report</span><b>FY2025 Annual Report</b><span class="go" aria-hidden="true">→</span></span></a>
+          <a class="stag" href="#"><span class="hole" aria-hidden="true"></span><span class="tb"><span class="mono">PDF · Audit</span><b>FY2025 Audited Financial Statements</b><span class="go" aria-hidden="true">→</span></span></a>
+          <a class="stag" href="#"><span class="hole" aria-hidden="true"></span><span class="tb"><span class="mono">PDF · IRS filing</span><b>FY2025 Form 990</b><span class="go" aria-hidden="true">→</span></span></a>
+          <a class="stag" href="#"><span class="hole" aria-hidden="true"></span><span class="tb"><span class="mono">Policy</span><b>Donation Policies</b><span class="go" aria-hidden="true">→</span></span></a>
+        </div>
+        <button class="pin" data-n="20" style="left:-14px;top:-10px" aria-label="Design note 20">20</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="methods" id="methods" aria-labelledby="methods-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="methods-h">Five evaluators, five different questions</h2>
+        </div>
+        <p class="sec-lede">Charity Navigator looks beyond finances. CharityWatch grades cash efficiency. Forbes publishes ratios. BBB tests 20 standards. Candid rates openness. Here's what each one asks, and how Direct Relief answers.</p>
+      </div>
+
+      <div class="qlist rel">
+        <div class="q">
+          <div class="q-who"><b>Charity Navigator</b><span class="res">100 / 100</span></div>
+          <p class="q-ask">Is the charity effective, accountable and financially healthy?</p>
+          <p class="q-how">A weighted 0–100 score, translated into zero to four stars. Covers impact and measurement, accountability, leadership, planning, workplace policies and compensation.</p>
+        </div>
+        <div class="q">
+          <div class="q-who"><b>CharityWatch</b><span class="res">A+</span></div>
+          <p class="q-ask">How efficiently does it use cash donations?</p>
+          <p class="q-how">An A+ to F grade from adjusted program spending and fundraising cost. Excess reserves can lower the grade. FY2024: 90% to programs, $5 to raise $100.</p>
+        </div>
+        <div class="q">
+          <div class="q-who"><b>Forbes</b><span class="res">99%</span></div>
+          <p class="q-ask">How much of each donation goes to the mission?</p>
+          <p class="q-how">Publishes charitable commitment, fundraising efficiency and donor dependency ratios. 2025: 99% charitable commitment, 100% fundraising efficiency (rounded).</p>
+        </div>
+        <div class="q">
+          <div class="q-who"><b>BBB Wise Giving Alliance</b><span class="res">20 of 20</span></div>
+          <p class="q-ask">Does it meet accountability standards?</p>
+          <p class="q-how">Pass or fail on 20 standards covering board oversight, public reporting, appeals, donor privacy, spending, reserves and financial reporting.</p>
+        </div>
+        <div class="q">
+          <div class="q-who"><b>Candid</b><span class="res">Platinum</span></div>
+          <p class="q-ask">How openly does it share what it does?</p>
+          <p class="q-how">Seal of Transparency levels for sharing information about finances, programs and results. Platinum is the highest.</p>
+        </div>
+        <button class="pin" data-n="13" style="left:-14px;top:-14px" aria-label="Design note 13">13</button>
+      </div>
+
+      <div class="bigquote">
+        <figure class="bq-body" style="margin:0">
+          <span class="bq-mark" aria-hidden="true"><span class="sk"><img src="img/dr-logo.svg" alt="" width="323" height="61"></span></span>
+          <blockquote><p>[Direct Relief is] the largest, most efficient, most effective, and most impactful global humanitarian group that you may never have heard of.</p></blockquote>
+          <figcaption><b>Jeff Berman</b><span class="mono">Director, Direct Relief · Co-host, Masters of Scale</span></figcaption>
+        </figure>
+        <figure class="bq-ph"><img src="img/colombia-clinic.jpg" alt="A clinician examines a baby’s ear in Colombia." loading="lazy"></figure>
+      </div>
+
+      <div class="ranks rel">
+        <div class="ranks-h"><h3>How Direct Relief ranks by size</h3><p class="mono">The lists use different comparison groups and revenue definitions</p></div>
+        <div class="plates">
+          <div class="plate"><span class="mono">Devex · 2026</span><b><small>No.</small>1</b><p>Total revenue among the 50 U.S. international NGOs in the analysis</p></div>
+          <div class="plate"><span class="mono">Forbes · 2025</span><b><small>No.</small>5</b><p>Private donations among the Top 100 U.S. charities</p></div>
+          <div class="plate"><span class="mono">The NonProfit Times · 2025</span><b><small>No.</small>14</b><p>2024 total revenue within the NPT Top 100</p></div>
+        </div>
+        <button class="pin" data-n="14" style="right:-10px;top:-12px" aria-label="Design note 14">14</button>
+      </div>
+
+      <div class="drawers">
+        <details class="drawer"><summary>Compare the evaluation methods <span class="c" aria-hidden="true">+</span></summary>
+          <div class="tblw" tabindex="0" role="region" aria-label="Evaluation methods compared">
+            <table class="tl">
+              <thead><tr><th>Evaluator</th><th>How the result is determined</th><th>Impact and effectiveness</th><th>Governance and transparency</th><th>Role of finances</th></tr></thead>
+              <tbody>
+                <tr><td>Charity Navigator</td><td>Weighted 0–100 score, translated into zero to four stars.</td><td>Assesses impact, measurement and learning.</td><td>Assesses accountability, leadership, planning, workplace policies and compensation.</td><td>Financial health is one part of a broader evaluation.</td></tr>
+                <tr><td>CharityWatch</td><td>A+–F grade based on adjusted program spending and fundraising cost. Excess reserves can lower the grade.</td><td>Measures nonprofit efficiency.</td><td>Separate governance and transparency standards apply to Top-Rated status.</td><td>Cash-based financial efficiency determines the letter grade.</td></tr>
+                <tr><td>Forbes</td><td>Publishes charitable commitment, fundraising efficiency and donor dependency ratios.</td><td>The ratios measure financial efficiency.</td><td>Measures financial reports.</td><td>Financial ratios; its Top 100 list separately ranks private donations.</td></tr>
+                <tr><td>BBB Wise Giving Alliance</td><td>Accreditation means meeting all 20 accountability standards.</td><td>Requires periodic effectiveness assessment and board review; does not score the quality of outcomes.</td><td>Standards cover board oversight, public reporting, appeals and donor privacy.</td><td>Includes spending, fundraising, reserves and financial-reporting standards.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details class="drawer"><summary>Which contributions each evaluator counts <span class="c" aria-hidden="true">+</span></summary>
+          <div class="tblw" tabindex="0" role="region" aria-label="Contribution base by evaluator">
+            <table class="tl yn">
+              <thead><tr><th>Evaluator</th><th>Contribution base</th><th>Government grants</th><th>Donated goods</th><th>Program service revenue</th><th>Investment revenue</th></tr></thead>
+              <tbody>
+                <tr><td>Charity Navigator</td><td>Total contributions reported on Form 990</td><td><i class="y">Included</i></td><td><i class="y">Included</i></td><td><i class="n">Excluded</i></td><td><i class="n">Excluded</i></td></tr>
+                <tr><td>CharityWatch</td><td>Adjusted cash contributions related to fundraising</td><td><i class="n">Excluded</i></td><td><i class="n">Excluded</i></td><td><i class="n">Excluded</i></td><td><i class="n">Excluded</i></td></tr>
+                <tr><td>Forbes</td><td>Private donations, including gifts in kind</td><td><i class="n">Excluded</i></td><td><i class="y">Included</i></td><td><i class="n">Excluded</i></td><td><i class="n">Excluded</i></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details class="drawer"><summary>Program and fundraising measures side by side <span class="c" aria-hidden="true">+</span></summary>
+          <div class="tblw" tabindex="0" role="region" aria-label="Program and fundraising measures">
+            <table class="tl">
+              <thead><tr><th>Measure</th><th>Result</th><th>Period</th><th>Basis</th></tr></thead>
+              <tbody>
+                <tr><td>Direct Relief · total expense share</td><td>99.31%</td><td>FY2025</td><td>Program expenses ÷ total expenses, including donated goods and services</td></tr>
+                <tr><td>Direct Relief · cash-based operating share</td><td>89.75%</td><td>FY2023–FY2025</td><td>Excludes in-kind expenses and depreciation</td></tr>
+                <tr><td>CharityWatch · program percentage</td><td>90%</td><td>FY2024</td><td>Adjusted cash-based method</td></tr>
+                <tr><td>Forbes · charitable commitment</td><td>99%</td><td>2025 list</td><td>Includes donated goods</td></tr>
+                <tr><td>Direct Relief · fundraising cost</td><td>$2.95 per $100</td><td>FY2023–FY2025</td><td>Adjusted fundraising expenses ÷ financial contributions</td></tr>
+                <tr><td>CharityWatch · cost to raise $100</td><td>$5</td><td>FY2024</td><td>Adjusted cash-based method</td></tr>
+                <tr><td>Forbes · fundraising efficiency</td><td>100% (rounded)</td><td>2025 list</td><td>Private donations remaining after fundraising costs</td></tr>
+                <tr><td>Direct Relief · fundraising expense share</td><td>0.15%</td><td>FY2025</td><td>Fundraising expenses ÷ total expenses</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="recog" id="recognition" aria-labelledby="recog-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="recog-h">Recognized, year after year</h2>
+        </div>
+        <p class="sec-lede">Awards and editorial lists are separate from independent charity evaluation. The ratings above are the evaluations; these are the honors.</p>
+      </div>
+
+      <div class="honors">
+        <figure class="honor lead-h">
+          <span class="mono">Seoul Peace Prize · April 2025</span>
+          <blockquote><p>Direct Relief has exemplified true humanitarianism by providing medicines and medical supplies around the world—not through temporary aid, but sustained, patient-focused support uniquely tailored to each region.</p></blockquote>
+          <figcaption><b>Jaeho Yeom</b> · Chairman, Seoul Peace Prize Cultural Foundation</figcaption>
+          <a class="arrow-link" href="#">Read about the award <span class="c" aria-hidden="true">→</span></a>
+        </figure>
+        <div class="honor-side">
+          <div class="honor"><span class="mono">TIME</span><b>Dreamer of the Year</b><p>Presented by TIME in collaboration with American Family Insurance.</p><a class="arrow-link sm2" href="#">Read about it <span class="c" aria-hidden="true">→</span></a></div>
+          <div class="honor streak2 rel"><button class="pin" data-n="18" style="right:-10px;top:-12px" aria-label="Design note 18">18</button><span class="mono">Charity Navigator</span><b>15 consecutive four-star ratings</b>
+            <div class="stk" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="last"></i></div>
+            <p>The 15th came in November 2025.</p></div>
+        </div>
+      </div>
+
+      <div class="tline rel" role="region" aria-label="Timeline of selected recognition, 2013 to 2026" tabindex="0">
+        <div class="tl-track">
+          <div class="tl-axis" aria-hidden="true"></div>
+          <span class="tick" style="--p:0.00%"><em class="mono">2013</em></span>
+          <span class="tick" style="--p:7.69%"><em class="mono">2014</em></span>
+          <span class="tick" style="--p:15.38%"><em class="mono">2015</em></span>
+          <span class="tick" style="--p:23.08%"><em class="mono">2016</em></span>
+          <span class="tick" style="--p:30.77%"><em class="mono">2017</em></span>
+          <span class="tick" style="--p:38.46%"><em class="mono">2018</em></span>
+          <span class="tick" style="--p:46.15%"><em class="mono">2019</em></span>
+          <span class="tick" style="--p:53.85%"><em class="mono">2020</em></span>
+          <span class="tick" style="--p:61.54%"><em class="mono">2021</em></span>
+          <span class="tick" style="--p:69.23%"><em class="mono">2022</em></span>
+          <span class="tick" style="--p:76.92%"><em class="mono">2023</em></span>
+          <span class="tick" style="--p:84.62%"><em class="mono">2024</em></span>
+          <span class="tick" style="--p:92.31%"><em class="mono">2025</em></span>
+          <span class="tick" style="--p:100.00%"><em class="mono">2026</em></span>
+          <div class="ev up" style="--p:0.00%"><i></i><div class="ev-c"><span class="mono">2013 · Independent Charities of America</span><b>Best Charity</b></div></div>
+          <div class="ev" style="--p:30.77%"><i></i><div class="ev-c"><span class="mono">2017 · Ernst &amp; Young</span><b>Award for Social Entrepreneurship</b></div></div>
+          <div class="ev up" style="--p:38.46%"><i></i><div class="ev-c"><span class="mono">2018 · Charity Navigator</span><b>10 Best Humanitarian Relief Organizations</b></div></div>
+          <div class="ev" style="--p:53.85%"><i></i><div class="ev-c"><span class="mono">2020 · Winner</span><b>Global Health Supply Chain Summit Prize</b></div></div>
+          <div class="ev up" style="--p:69.23%"><i></i><div class="ev-c"><span class="mono">2022 · CNBC</span><b>Top-Rated Charities for Ukraine Relief</b></div></div>
+          <div class="ev" style="--p:76.92%"><i></i><div class="ev-c"><span class="mono">2023 · Winner</span><b>Qlik Global Transformation Award</b></div></div>
+          <div class="ev up" style="--p:92.31%"><i></i><div class="ev-c"><span class="mono">2025 · April 2025</span><b>Seoul Peace Prize</b></div></div>
+          <div class="ev" style="--p:100.00%"><i></i><div class="ev-c"><span class="mono">2026 · Charity Navigator · Sept 2026</span><b>Perfect 100 Score</b></div></div>
+        </div>
+        <button class="pin" data-n="15" style="left:-14px;top:-14px" aria-label="Design note 15">15</button>
+      </div>
+
+      <details class="drawer archive"><summary>All 44 archived ratings, awards and honors <span class="c" aria-hidden="true">+</span></summary>
+        <div class="arch-cols">
+          <div class="ag"><h4 class="mono">Independent ratings and accreditation <span>5</span></h4><ul>
+<li><span>100% Impact Rating (2026), Charity Navigator</span><em class="mono">Sept. 13, 2026</em></li>
+<li><span>Perfect 100 Score, Charity Navigator</span><em class="mono">Sept. 13, 2026</em></li>
+<li><span>Four-star charity, Charity Navigator</span><em class="mono">Sept. 13, 2026</em></li>
+<li><span>National Charity Seal, Better Business Bureau Wise Giving Alliance</span><em class="mono">August 2025</em></li>
+<li><span>Top-Rated Charity: International Relief and Development, American Institute of Philanthropy</span><em class="mono">July 3, 2011</em></li>
+</ul></div>
+<div class="ag"><h4 class="mono">Editorial recognition and charity lists <span>29</span></h4><ul>
+<li><span>Best Charities with Lowest Overhead Costs, Nonprofit Point</span><em class="mono">June 5, 2026</em></li>
+<li><span>2026 List of Household Name Charities, Charity Navigator</span><em class="mono">May 2026</em></li>
+<li><span>Best Charities 2026 – Humanitarian Relief Charities, Charity Navigator</span><em class="mono">May 2026</em></li>
+<li><span>List of Well-Known Charities 2026, Charity Navigator</span><em class="mono">May 2026</em></li>
+<li><span>Best Humanitarian Relief Charities, Charity Navigator</span><em class="mono">May 2026</em></li>
+<li><span>9 Charities with Highest Percentage to Cause, Nonprofit Point</span><em class="mono">April 30, 2026</em></li>
+<li><span>25 Best Nonprofits to Donate to, Money Minder</span><em class="mono">April 13, 2026</em></li>
+<li><span>5th Largest Charity in the U.S., Forbes</span><em class="mono">Dec. 12, 2025</em></li>
+<li><span>America’s Top Charities, Forbes</span><em class="mono">Dec. 12, 2025</em></li>
+<li><span>Best Humanitarian Charities to Donate to on GoFundMe, GoFundMe</span><em class="mono">Nov. 19, 2025</em></li>
+<li><span>Best Emergency Relief Charity to Donate to, GoFundMe</span><em class="mono">Nov. 6, 2025</em></li>
+<li><span>When Disaster Strikes, These Top Charities Actually Deliver, Forbes</span><em class="mono">Dec. 10, 2024</em></li>
+<li><span>9 Best Charities for International Aid, Impactful Ninja</span><em class="mono">Oct. 9, 2024</em></li>
+<li><span>Top global causes you should support in 2024, Global Impact</span><em class="mono">Oct. 6, 2024</em></li>
+<li><span>Donate to a Top-Rated Charity – Hurricane Helene, CharityWatch</span><em class="mono">Sept. 27, 2024</em></li>
+<li><span>The Top Charities to Give to Before the End of the Year, Global Impact</span><em class="mono">Dec. 20, 2022</em></li>
+<li><span>Best Charities for 2023, WalletHub</span><em class="mono">Nov. 8, 2022</em></li>
+<li><span>10 Best Charities, Charity Navigator</span><em class="mono">June 2022</em></li>
+<li><span>High Impact Giving Guide, Center for High Impact Philanthropy, University of Pennsylvania</span><em class="mono">December 2018</em></li>
+<li><span>10 Best Humanitarian Relief Organizations, Charity Navigator</span><em class="mono">July 24, 2018</em></li>
+<li><span>10 Highly Rated Charities Relying on Private Contributions, Charity Navigator</span><em class="mono">2018</em></li>
+<li><span>Best Charities for Holiday Giving, WalletHub</span><em class="mono">2018</em></li>
+<li><span>5 Non-profits that Do the Most with Your Money, Las Vegas Review-Journal</span><em class="mono">Dec. 22, 2015</em></li>
+<li><span>Best Charity, Independent Charities of America’s “Best in America” list</span><em class="mono">2013</em></li>
+<li><span>How to Help: Hurricane Helene, Fidelity</span><em class="mono">Oct. 1, 2024</em></li>
+<li><span>Top-Rated Charities to Help the Ukraine Relief Effort, CNBC</span><em class="mono">March 9, 2022</em></li>
+<li><span>The 50 Best Charities to Donate To, Let’s Roam</span><em class="mono">Oct. 7, 2021</em></li>
+<li><span>The 50 Best Charities to Give to Right Now, Good Housekeeping</span><em class="mono">Nov. 9, 2020</em></li>
+<li><span>Top 100 Nonprofits on the Web, Top Nonprofits</span></li>
+</ul></div>
+<div class="ag"><h4 class="mono">Innovation, supply chain and other awards <span>5</span></h4><ul>
+<li><span>Finalist, Best Storytelling, Shorty Awards</span><em class="mono">Oct. 14, 2020</em></li>
+<li><span>Winner, Qlik Global Transformation Award 2023</span><em class="mono">April 19, 2023</em></li>
+<li><span>Winner, Global Health Supply Chain Summit Prize</span><em class="mono">November 2020</em></li>
+<li><span>Oktane Award Finalist, Okta for Good</span><em class="mono">May 2018</em></li>
+<li><span>Award for Social Entrepreneurship, Ernst &amp; Young</span><em class="mono">June 15, 2017</em></li>
+</ul></div>
+<div class="ag"><h4 class="mono">Community health partnerships <span>5</span></h4><ul>
+<li><span>Board Chair’s Award, Texas Association of Community Health Centers</span><em class="mono">2020</em></li>
+<li><span>Community Partner Award, California Association of Free and Charitable Clinics</span><em class="mono">2020</em></li>
+<li><span>Healthy10 Award, BD Helping Build Healthy Communities, U.S. Chamber Foundation</span><em class="mono">Feb. 16, 2017</em></li>
+<li><span>Power through Partnership Award, National Association of Community Health Centers</span><em class="mono">August 2014</em></li>
+<li><span>Global Health Partnership Award, BD</span><em class="mono">2013</em></li>
+</ul></div>
+        </div>
+      </details>
+
+      <div class="press">
+        <h3 class="mono">In reporting and giving guides</h3>
+        <div class="press-row">
+          <a href="#"><span class="mono">Emergency response coverage</span><b class="serifname">The New York Times</b><p>Featured Direct Relief in its Venezuela earthquake giving guide.</p></a>
+          <a href="#"><span class="mono">Regional recovery coverage</span><b>Associated Press</b><p>Highlighted ways to support earthquake recovery in Venezuela and Colombia.</p></a>
+          <a href="#"><span class="mono">Verified relief funds</span><b>CNN Impact Your World</b><p>Included Direct Relief in its Colombia emergency relief fund.</p></a>
+          <a href="#"><span class="mono">Ways to help</span><b class="serifname">ELLE</b><p>Included Direct Relief in its Colombia giving guide.</p></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <div class="faq-side">
+        <h2 id="faq-h">The questions donors actually ask</h2>
+        <p class="sec-lede">Short answers first. Every number links back to the section above that shows the math.</p>
+      </div>
+      <div class="faq-list rel">
+        <details class="qa" open><summary><span>Is Direct Relief a good charity?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>Every major evaluator gives Direct Relief its top mark: a perfect 100 from Charity Navigator, an A+ from CharityWatch, 99% from Forbes, all 20 BBB Wise Giving standards, and Candid's Platinum seal. <a href="#ratings-h">See the ratings</a></p></div></details>
+        <details class="qa"><summary><span>Why are Direct Relief's ratios so high?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>Most of what Direct Relief spends is donated medicine, recorded at fair value (wholesale acquisition cost for FDA-approved medicines). That pushes the program share to 99.31%. Count cash only and it's about 90% over three years. <a href="#money">See both views</a></p></div></details>
+        <details class="qa"><summary><span>Who pays for fundraising?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>Fundraising is paid for by endowment earnings and legacy bequests, not by your gift. In FY2025, fundraising expenses were $3.5M, or 0.15% of total expenses.</p></div></details>
+        <details class="qa"><summary><span>Does Direct Relief take government money?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>No. Direct Relief does not accept government funding. It's privately funded by individuals, companies and foundations.</p></div></details>
+        <details class="qa"><summary><span>Can I choose where my gift goes?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>Yes. A gift for a specific emergency or program is used only for that purpose, including directly related administrative costs. If that isn't possible, Direct Relief offers your money back. <a href="#">Donation policy</a></p></div></details>
+        <details class="qa"><summary><span>Can I donate medicine I have at home?</span><span class="c" aria-hidden="true">+</span></summary><div class="qa-a"><p>No. Industry regulations prevent Direct Relief from accepting unrequested or individual prescription donations from the public. Medicine comes from manufacturers and licensed distributors.</p></div></details>
+        <button class="pin" data-n="16" style="right:-10px;top:-12px" aria-label="Design note 16">16</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="give" id="give" aria-labelledby="give-h">
+    <div class="wrap give-grid">
+      <div class="give-copy">
+        <h2 id="give-h">Help deliver medicine where it can do the most good</h2>
+        <p>Your support helps equip health professionals caring for people across the United States and around the world, every day, during emergencies and through recovery.</p>
+      </div>
+      <form class="give-card rel" id="give-form" novalidate>
+        <div class="freq" role="group" aria-label="Gift frequency">
+          <button type="button" id="f-once" aria-pressed="true">One time</button>
+          <button type="button" id="f-month" aria-pressed="false">Monthly</button>
+        </div>
+        <fieldset class="amts">
+          <legend class="mono">Choose an amount</legend>
+          <label><input type="radio" name="amt" id="amt-50" value="50" checked><span>$50</span></label>
+          <label><input type="radio" name="amt" id="amt-100" value="100"><span>$100</span></label>
+          <label><input type="radio" name="amt" id="amt-250" value="250"><span>$250</span></label>
+          <label class="other"><span class="cur">$</span><input type="text" inputmode="decimal" id="amt-other" placeholder="Other" aria-label="Other amount"></label>
+        </fieldset>
+        <button type="submit" class="btn btn-give big" id="give-btn">Give $50 now</button>
+        <p class="give-msg mono" id="give-msg" hidden>Prototype only. No payment is taken.</p>
+        <p class="secure mono"><span>Secure checkout</span><span>501(c)(3) · EIN 95-1831116</span><span>Tax-deductible</span></p>
+        <button class="pin" data-n="17" style="left:-12px;top:-12px" aria-label="Design note 17">17</button>
+      </form>
+    </div>
+    <div class="wrap">
+      <div class="ways">
+        <a href="#"><span class="mono">Donor-advised funds</span><b>Recommend a grant from your DAF</b><span class="go" aria-hidden="true">→</span></a>
+        <a href="#"><span class="mono">IRA charitable gifts</span><b>See if a qualified charitable distribution fits</b><span class="go" aria-hidden="true">→</span></a>
+        <a href="#"><span class="mono">Stock and other gifts</span><b>Stock, matching gifts, crypto and planned gifts</b><span class="go" aria-hidden="true">→</span></a>
+      </div>
+      <p class="privnote">Direct Relief does not accept government funding. Gifts designated for a specific emergency or program are used only for that purpose, including directly related administrative costs. <a href="#">Donation policy</a></p>
+    </div>
+  </section>
+
+  <footer class="foot2">
+    <div class="wrap">
+      <div class="news">
+        <div><h2>Hear from Direct Relief</h2><p>Stories, emergency updates and humanitarian impact, in your inbox.</p></div>
+        <form class="news-form" id="news-form" novalidate>
+          <label for="news-email" class="mono">Email address</label>
+          <div class="nf-row"><input type="email" id="news-email" placeholder="you@example.org" autocomplete="email"><button type="submit" class="btn btn-give">Sign up</button></div>
+          <p class="mono nf-msg" id="news-msg" hidden>Prototype only. Nothing is sent.</p>
+        </form>
+      </div>
+      <div class="fcols">
+        <div class="fbrand">
+          <img src="img/dr-logo.svg" alt="Direct Relief" width="181" height="34">
+          <p class="addr">6100 Wallace Becknell Road<br>Santa Barbara, CA 93117</p>
+          <div class="social mono"><a href="#">Bluesky</a><a href="#">Facebook</a><a href="#">Threads</a><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">X</a><a href="#">YouTube</a></div>
+        </div>
+        <nav aria-label="About"><b class="mono">About</b><a href="#">Contact</a><a href="#">Careers</a><a href="#">Mission</a><a href="#">Support &amp; FAQs</a></nav>
+        <nav aria-label="Financials"><b class="mono">Financials</b><a href="#">Annual Reports</a><a href="#">Donation Policies</a><a href="#">In-Kind Valuation</a><a href="#">Financial Policies</a></nav>
+        <nav aria-label="Accreditation"><b class="mono">Accreditation</b><a href="#">Charity Ratings</a><span>501(c)(3) Nonprofit</span><span>EIN 95-1831116</span><a href="#">Compliance &amp; Licenses</a></nav>
+        <nav aria-label="Governance"><b class="mono">Governance</b><a href="#">Content Republishing</a><a href="#">Leadership</a><a href="#">Privacy Policy</a><a href="#">Cookie Settings</a></nav>
+      </div>
+      <div class="fbase mono"><span>© 2026 Direct Relief</span><span>Nonpartisan · Nongovernmental · Privately funded · Founded 1948</span></div>
+    </div>
+  </footer>
+
+</div>
+</div>
+
+<aside class="notes-panel" id="notes" hidden aria-label="Design notes">
+  <h4>Design notes</h4>
+  <span class="mono" style="font-family:var(--f-label);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase">DR-1881 · Chain of Custody · v4 · shipping boxes</span>
+  <ol>
+    <li data-n="1"><span><b>Live status strip</b>Shows Direct Relief working right now (after World Central Kitchen and Team Rubicon). Editors manage the list; it hides when nothing is active. On mobile only the top emergency shows.</span></li>
+    <li data-n="2"><span><b>Hero: ink band, offset tiles, routes</b>Susan's hero order, rebuilt. The photo sits on rotated orange and amber tiles taken from the logo mark. Dot matrix and dashed shipping routes add texture. The tag is now a photo caption.</span></li>
+    <li data-n="3"><span><b>Three logo cards, no carousel</b>Charity Navigator, CharityWatch and Forbes, each with its logo and one result. They overlap the hero for depth and link out to verify. BBB and Candid are covered in the methods section. A streak bar shows 15 straight four-star years.</span></li>
+    <li data-n="4"><span><b>One person, on a tile</b>Yaroslava keeps her place beside the money answer from v4, with the photo stacked above the story. Newsreader carries the quote, and Schibsted Grotesk carries the photo credit.</span></li>
+    <li data-n="5"><span><b>Copy to confirm with finance</b>"0% to fundraising" comes from v4. The financials section reports $3.5M fundraising expense and $2.95 per $100. Add one line connecting them before launch.</span></li>
+    <li data-n="6"><span><b>46:1 gets its own band</b>Promoted out of the Impact panel. The headline is the plain-language claim; the ratio is the visual.</span></li>
+    <li data-n="7"><span><b>Drawn to scale</b>The unit chart and the bars are both true to the numbers: 1 against 46, and 2.15% against 100%. Squares pop in once on first view, and reduced motion shows them static.</span></li>
+    <li data-n="8"><span><b>Dot-matrix map, shipments in motion</b>Land is a 2° dot grid baked from Natural Earth, so nothing loads at runtime. Dashed routes run from Santa Barbara to every story on the page, with small packets moving along them. The two cumulative milestones float over the ocean, and labels drop on small screens.</span></li>
+    <li data-n="9"><span><b>Time-scaled stat</b>29,657 deliveries a year works out to one every 17.7 minutes. The clock hand turns slowly as an ambient cue.</span></li>
+    <li data-n="10"><span><b>The route is the story spine</b>v4's About band, How medicines reach patients, Disaster response and four story blocks become one sticky route. The stop list tracks your scroll and each stop carries one story. On mobile it becomes a single dashed line with stacked stops.</span></li>
+    <li data-n="11"><span><b>One view: % of total expenses</b>The all-expenses / cash-only toggle and the 3-year average boxes are gone. The carton and the 100 squares show the audited FY2025 split (99.31% / 0.54% / 0.15% of $2.31B). The cash-only figures stay in the expense table drawer.</span></li>
+    <li data-n="12"><span><b>Tables go in drawers</b>The full expense table and accounting notes stay one click away for analysts, keeping the section to one screen.</span></li>
+    <li data-n="13"><span><b>Methods as questions</b>Each evaluator card leads with the question it answers, then how it scores, then Direct Relief's result. The question lines are our draft copy. The full comparison tables from the prototype stay word for word in the drawers below.</span></li>
+    <li data-n="14"><span><b>Rank plates</b>Embossed plates for Devex No. 1, Forbes No. 5 and NPT No. 14. Americares leads with Forbes No. 8, so this is a quiet point of difference.</span></li>
+    <li data-n="15"><span><b>Timeline drawn to scale</b>Years are evenly spaced from 2013 to 2026, with 8 highlights above and below the axis. All 44 archived items stay in one drawer, grouped as in the prototype. On mobile it becomes a vertical list.</span></li>
+    <li data-n="16"><span><b>Straight answers</b>Six FAQs, in the Save the Children style. Mark them up as FAQPage structured data so search and AI answers can quote them. The fundraising answer needs the same finance check as note 5.</span></li>
+    <li data-n="17"><span><b>Give band</b>The one gradient on the page: orange and amber light on ink, with grain. The amount chips and monthly toggle are a working mock; wire them to Direct Relief's donation platform in build. Nothing submits here.</span></li>
+    <li data-n="18"><span><b>Confirm the streak</b>The prototype's archive lists a Charity Navigator four-star rating and perfect score dated Sept 13, 2026, after the 15th consecutive rating in Nov 2025. The seal now says Sept 2026. Confirm whether the streak is now 16.</span></li>
+    <li data-n="19"><span><b>The money ships in a carton</b>Replaces the receipt. A kraft box with an "Expenses" shipping label listing each purpose as a % of total. The rubber stamp echoes the stamp language in Direct Relief's own recent launch. The 100 squares become parcels on a pallet.</span></li>
+    <li data-n="20"><span><b>Paperwork as shipping tags</b>The annual report, audit, 990 and policies hang as manila tags on one line. They straighten on hover.</span></li>
+  </ol>
+</aside>
+
+<div class="toolbar" role="toolbar" aria-label="Preview controls">
+  <span class="vtag">v4</span>
+  <!-- <a class="vlink" href="https://claude.ai/artifact/4XBNhkKJDhZuQbL3t4Cwgs">Compare v3 ↗</a> -->
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" id="b-desk" aria-pressed="true">Desktop</button>
+  <button type="button" id="b-375" aria-pressed="false">375</button>
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" id="b-notes" aria-pressed="false">Design notes</button>
+</div>
+
+<script>
+(function(){
+  var units=document.getElementById('units'),h='<i class="cost" style="--i:0"></i>';
+  for(var i=1;i<=46;i++)h+='<i style="--i:'+i+'"></i>';units.innerHTML=h;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){units.classList.add('popin');io.disconnect();}});},{threshold:.5});
+    io.observe(units);
+  }
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.querySelectorAll('.seal').forEach(function(s){
+      var raf=0;s.addEventListener('pointermove',function(e){if(raf)return;raf=requestAnimationFrame(function(){raf=0;var r=s.getBoundingClientRect();s.style.setProperty('--x',(e.clientX-r.left)+'px');s.style.setProperty('--y',(e.clientY-r.top)+'px');});});
+    });
+  }
+  var bd=document.getElementById('b-desk'),bm=document.getElementById('b-375'),bn=document.getElementById('b-notes'),panel=document.getElementById('notes');
+  function mode(m){document.body.classList.toggle('m375',m);bd.setAttribute('aria-pressed',!m);bm.setAttribute('aria-pressed',m);try{localStorage.setItem('dr-mode-v4',m?'375':'desk')}catch(e){}}
+  bd.onclick=function(){mode(false)};bm.onclick=function(){mode(true)};
+  function notes(on){document.body.classList.toggle('notes',on);panel.hidden=!on;bn.setAttribute('aria-pressed',on);}
+  bn.onclick=function(){notes(!document.body.classList.contains('notes'))};
+  document.querySelectorAll('.pin').forEach(function(p){p.onclick=function(){notes(true);panel.querySelectorAll('li').forEach(function(li){li.classList.toggle('hl',li.dataset.n===p.dataset.n);if(li.dataset.n===p.dataset.n)li.scrollIntoView({block:'nearest'});});};});
+  try{if(localStorage.getItem('dr-mode-v4')==='375')mode(true)}catch(e){}
+})();
+</script>
+<script>window.DR_DOTS="000000000000000000000000100110110011001100000000000000011111111111111111111000000000000000000000000000000000000000011100000000000000101111111100000000000011000000000000000000000000|000000000000000000000001111000000000001000000000000000000111111111111111111000000000000000000000000000000000000011000000000000001111111111110000000000000000000000000000000000000000|000000000000000000000011101111111001100011111111000000000111111111111111100000000000000000000000000000000000000110000001101110111111111111111111111110000001111100000000000000000000|000011111111110000010100001111111110011000111011111000000011111111111111110000000000000000000001111100000000000000000001101111111111111111111111111111111111111111111000001000000000|111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111000000000000110110000000000000000000000000000000000000000000000000000000000000000001111|111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111100000000000111000000000000000000000000000000000000000000000000000000000000000000000010000|000001111111111111111111111111111111111100101000011100000001111110000000001110000000000000111110111111101111111111111111111111111111111111111111111111111111111111111111111111000000|001111111111111111111111111111111111110000000011100000000000111100000000000000000000000011111100111111111111111111111111111111111111111111111111111111111111111111111101111110000000|000111111110001111111111111111111111110000000011110010000000000000000000000000000000000011111100100011111111111111111111111111111111111111111111111111111111111111000011000000000000|000000110000000000111111111111111111111000000011111111000000000000000000000000000010000000011000011111111111111111111111111111111111111111111111111111111110000000001100000000000000|000001000000000000011111111111111111111110000001111111100000000000000000000000000010000001010000111111111111111111111111111111111111111111111111111111111100000000011100000000000000|000000000000000000101111111111111111111111110111111111110000000000000000000000001100100001111111111111111111111111111111111111111111111111111111111111111110000000011000000000000000|000000000000000000000111111111111111111111110011111111111000000000000000000000001011110111111111111111111111111111111111111111111111111111111111111111111111100000010000000000000000|000000000000000000000101111111111111111111111111111100001000000000000000000000000000011111111111111111111111111111111111111111111111111111111111111111111110100000000000000000000000|000000000000000000000000111111111111111111111111111100011110000000000000000000000001111111111111111111111111111111111111111111111111111111111111111111111110000000000000000000000000|000000000000000000000001111111111111111111111111111110100000000000000000000000000000111111111111111100001111100011111111111111111111111111111111111111111100000000000000000000000000|000000000000000000000001111111111111111111111111110010000000000000000000000000000000111110100111111000000111101111111111111111111111111111111111111111111000110000000000000000000000|000000000000000000000001111111111111111111111111110000000000000000000000000000001111111001011001111000100011100111111111111111111111111111111111111111000001000000000000000000000000|000000000000000000000001111111111111111111111111000000000000000000000000000000001111100001000001001111111111110011111111111111111111111111111111101110000001000000000000000000000000|000000000000000000000000111111111111111111111110000000000000000000000000000000000111100000011000101111111111110011111111111111111111111111111111000110000000000000000000000000000000|000000000000000000000000111111111111111111111110000000000000000000000000000000000000011111000000000000011111111111111111111111111111111111111111100011000110000000000000000000000000|000000000000000000000000001111111111111111111100000000000000000000000000000000000111111111000000000000011111111111111111111111111111111111111111100000110000000000000000000000000000|000000000000000000000000000111111111111111111000000000000000000000000000000000001111111111111001100000111111111111111111111111111111111111111111110000100000000000000000000000000000|000000000000000000000000000101111111111100110000000000000000000000000000000000001111111111111111111111111111101111111111111111111111111111111111110000000000000000000000000000000000|000000000000000000000000000011111111100000001000000000000000000000000000000000011111111111111111111111011111100111111111111111111111111111111111110000000000000000000000000000000000|000000000000000000000000000000111111000000001000000000000000000000000000000000111111111111111111111111011111110000111111111111111111111111111111100000000000000000000000000000000000|000000000000000000000000000000011111000000000000000000000000000000000000000001111111111111111111111111101111111111000001111111111111111111111111010000000000000000000000000000000000|000000000000000000000000000000001111000000000100000000000000000000000000000001111111111111111111111111100111111111100000111111111101111111111100000000000000000000000000000000000000|000000000000000000000000000000001111100010000011000000000000000000000000000001111111111111111111111111110111111111000000011111110001111111000000000000000000000000000000000000000000|000000000000000000000000000000000011111110000010000100000000000000000000000001111111111111111111111111110011111110000000001111100000111111000000010000000000000000000000000000000000|000000000000000000000000000000000000101110000000000000000000000000000000000001111111111111111111111111111011111000000000001110000000101111100000010000000000000000000000000000000000|000000000000000000000000000000000000000111100000000000000000000000000000000001111111111111111111111111111101100000000000001110000000001111110000011000000000000000000000000000000000|000000000000000000000000000000000000000000100000000000000000000000000000000001111111111111111111111111111110001000000000000110000000001011110000000100000000000000000000000000000000|000000000000000000000000000000000000000000100001111111000000000000000000000000111111111111111111111111111111110000000000000110000000001001000000101000000000000000000000000000000000|000000000000000000000000000000000000000000001011111111100000000000000000000000111111111111111111111111111111110000000000000001000000001000000000001100000000000000000000000000000000|000000000000000000000000000000000000000000000011111111110100000000000000000000001111110111111111111111111111100000000000000000000000000100000001000100000000000000000000000000000000|000000000000000000000000000000000000000000000011111111111110000000000000000000000000000001111111111111111111100000000000000000000000010110000011000000000000000000000000000000000000|000000000000000000000000000000000000000000000011111111111111000000000000000000000000000000111111111111111111000000000000000000000000001110000111000000000000000000000000000000000000|000000000000000000000000000000000000000000000111111111111111000000000000000000000000000000111111111111111100000000000000000000000000000110001111000000000000000000000000000000000000|000000000000000000000000000000000000000000000111111111111111111000000000000000000000000000111111111111111100000000000000000000000000000110001110010000010110000000000000000000000000|000000000000000000000000000000000000000000001111111111111111111111000000000000000000000000011111111111111000000000000000000000000000000011000010000000011111100001000000000000000000|000000000000000000000000000000000000000000001111111111111111111111100000000000000000000000011111111111110000000000000000000000000000000000100000000000000011111100100000000000000000|000000000000000000000000000000000000000000000111111111111111111111110000000000000000000000001111111111111000000000000000000000000000000000001100000000000011101000001000000000000000|000000000000000000000000000000000000000000000011111111111111111111100000000000000000000000001111111111111000000000000000000000000000000000000000000000000000000100000000000000000000|000000000000000000000000000000000000000000000011111111111111111111000000000000000000000000001111111111111000000000000000000000000000000000000000000000010000100000000000000000000000|000000000000000000000000000000000000000000000001111111111111111111000000000000000000000000011111111111111000010000000000000000000000000000000000000010111000100000000000000000000000|000000000000000000000000000000000000000000000000111111111111111111000000000000000000000000011111111111111000110000000000000000000000000000000000000111111100110000000000000000000000|000000000000000000000000000000000000000000000000001111111111111110000000000000000000000000011111111111100001110000000000000000000000000000000000001111111111110000000000000000000000|000000000000000000000000000000000000000000000000001111111111111110000000000000000000000000011111111111000001100000000000000000000000000000000000011111111111111000000000000000000000|000000000000000000000000000000000000000000000000001111111111111100000000000000000000000000001111111111100001100000000000000000000000000000000011111111111111111100000000000000000000|000000000000000000000000000000000000000000000000001111111111110000000000000000000000000000001111111111100001100000000000000000000000000000000011111111111111111110000000000000000000|000000000000000000000000000000000000000000000000001111111111100000000000000000000000000000001111111110000000000000000000000000000000000000000011111111111111111111000000000000000000|000000000000000000000000000000000000000000000000011111111111100000000000000000000000000000000111111110000000000000000000000000000000000000000011111111111111111111000000000000000000|000000000000000000000000000000000000000000000000011111111111000000000000000000000000000000000011111100000000000000000000000000000000000000000001111111111111111111000000000000000000|000000000000000000000000000000000000000000000000011111111110000000000000000000000000000000000011111100000000000000000000000000000000000000000001111110011111111110000000000000000000|000000000000000000000000000000000000000000000000011111111100000000000000000000000000000000000011000000000000000000000000000000000000000000000001100000000011111110000000000000000000|000000000000000000000000000000000000000000000000011111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111100000000000000000000|000000000000000000000000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001101000000000000011000000|000000000000000000000000000000000000000000000000111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000|000000000000000000000000000000000000000000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000100000000|000000000000000000000000000000000000000000000000111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011000000000|000000000000000000000000000000000000000000000000111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110000000000|000000000000000000000000000000000000000000000001111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|000000000000000000000000000000000000000000000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|000000000000000000000000000000000000000000000001111000110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|000000000000000000000000000000000000000000000000111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";</script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // dot-matrix land from Natural Earth 110m, 2° grid
+  var land=document.getElementById('land');
+  if(land&&window.DR_DOTS){
+    var d='',rows=DR_DOTS.split('|');
+    for(var r=0;r<rows.length;r++){var row=rows[r];for(var c=0;c<row.length;c++){if(row.charCodeAt(c)===49)d+='M'+(c*10+5)+' '+(r*10+5)+'h0';}}
+    land.setAttribute('d',d);
+  }
+  if(reduce){document.querySelectorAll('.world animateMotion').forEach(function(a){a.remove();});}
+
+  // count-up, once, final values already in the HTML
+  function render(el,v){var dec=+el.dataset.dec||0;el.textContent=(el.dataset.pre||'')+v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec})+(el.dataset.suf||'');}
+  var counts=document.querySelectorAll('[data-count]');
+  if(!reduce&&'IntersectionObserver' in window){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;cio.unobserve(e.target);
+      var el=e.target,to=+el.dataset.count,t0=performance.now();el.setAttribute('aria-label',el.textContent);
+      (function step(t){var p=Math.min(1,(t-t0)/1200);p=1-Math.pow(1-p,3);render(el,to*p);if(p<1)requestAnimationFrame(step);else render(el,to);})(t0);
+    });},{threshold:.6});
+    counts.forEach(function(el){cio.observe(el);});
+  }
+
+  // route stepper
+  var steps=[].slice.call(document.querySelectorAll('.step')),stops=document.querySelector('.stops'),items=stops?[].slice.call(stops.children):[];
+  function setStep(i){
+    steps.forEach(function(s,k){s.classList.toggle('on',k===i);});
+    items.forEach(function(li,k){li.classList.toggle('on',k===i);li.classList.toggle('done',k<i);});
+    if(stops)stops.style.setProperty('--prog',items.length>1?i/(items.length-1):0);
+  }
+  if(steps.length){
+    setStep(0);
+    if('IntersectionObserver' in window){
+      var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setStep(+e.target.dataset.step);});},{rootMargin:'-45% 0px -45% 0px'});
+      steps.forEach(function(s){sio.observe(s);});
+    }
+    items.forEach(function(li){li.style.cursor='pointer';li.addEventListener('click',function(){var t=steps[+li.dataset.step];if(t)t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});});});
+  }
+
+  // money: 100 squares, % of total expenses
+  var g=document.getElementById('g100');
+  if(g){for(var i=0;i<100;i++)g.appendChild(document.createElement('i'));}
+  var css=getComputedStyle(document.documentElement),C={p:css.getPropertyValue('--orange').trim(),a:css.getPropertyValue('--steel').trim(),f:css.getPropertyValue('--ink').trim()};
+  function paint(v){
+    var segs=[[0,v.p,C.p],[v.p,v.p+v.a,C.a],[v.p+v.a,100,C.f]];
+    [].forEach.call(g.children,function(sq,k){
+      var stops=[],a=k,b=k+1;
+      segs.forEach(function(s){var lo=Math.max(a,s[0]),hi=Math.min(b,s[1]);if(hi>lo){stops.push(s[2]+' '+((lo-a)*100).toFixed(1)+'% '+((hi-a)*100).toFixed(1)+'%');}});
+      if(stops.length===1){sq.style.background='';sq.style.backgroundColor=stops[0].split(' ')[0];}
+      else{sq.style.background='linear-gradient(90deg,'+stops.join(',')+')';}
+    });
+  }
+  if(g)paint({p:99.31,a:.54,f:.15});
+})();
+</script>
+<script>
+(function(){
+  var form=document.getElementById('give-form');
+  if(form){
+    var btn=document.getElementById('give-btn'),other=document.getElementById('amt-other'),monthly=false;
+    var once=document.getElementById('f-once'),month=document.getElementById('f-month');
+    function amount(){var o=parseFloat((other.value||'').replace(/[^0-9.]/g,''));if(o>0)return o;var r=form.querySelector('input[name=amt]:checked');return r?+r.value:0;}
+    function label(){var a=amount();btn.textContent=a>0?('Give $'+a.toLocaleString('en-US',{maximumFractionDigits:2})+(monthly?' monthly':' now')):'Give now';}
+    form.querySelectorAll('input[name=amt]').forEach(function(r){r.addEventListener('change',function(){other.value='';label();});});
+    other.addEventListener('input',function(){if(other.value)form.querySelectorAll('input[name=amt]').forEach(function(r){r.checked=false;});label();});
+    once.onclick=function(){monthly=false;once.setAttribute('aria-pressed','true');month.setAttribute('aria-pressed','false');label();};
+    month.onclick=function(){monthly=true;month.setAttribute('aria-pressed','true');once.setAttribute('aria-pressed','false');label();};
+    form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('give-msg').hidden=false;});
+    label();
+  }
+  var nf=document.getElementById('news-form');
+  if(nf)nf.addEventListener('submit',function(e){e.preventDefault();document.getElementById('news-msg').hidden=false;});
+})();
+</script>
