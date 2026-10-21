@@ -2,6 +2,7 @@
 
 Hi-fi prototypes for client review, served with GitHub Pages.
 
+- v4: https://mnadolny.github.io/direct-relief/v4/
 - v5: https://mnadolny.github.io/direct-relief/v5/
 
 To add or refresh a version from `../hifi/why-direct-relief-hifi-<v>.html`:
