@@ -1,7 +1,108 @@
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="refresh" content="0; url=v5/">
-<title>Why Direct Relief</title>
-<a href="v5/">Why Direct Relief v5</a>
+<title>Why Direct Relief versions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Schibsted+Grotesk:wght@500;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F0EFEB;--surface:#FFFFFF;--ink:#10222D;--ink-2:#4A5A63;--rule:#D3D4CF;
+  --orange:#FE5000;--orange-text:#A9400C;--amber:#FFA200;--on-band:#EEEDE8;--on-band-2:#A5B4BD;
+  --e2:0 1px 1px rgba(16,34,45,.05),0 4px 8px rgba(16,34,45,.06),0 12px 24px rgba(16,34,45,.08);
+  --e3:0 2px 2px rgba(16,34,45,.06),0 8px 16px rgba(16,34,45,.08),0 28px 56px rgba(16,34,45,.14);
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-read:"Newsreader",Georgia,serif;
+  --f-label:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-read);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:32px}
+@media (max-width:600px){.wrap{padding-inline:16px}}
+.label{font-family:var(--f-label);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;font-weight:500}
+
+header{background:var(--ink);color:var(--on-band);position:relative;overflow:hidden;padding-block:56px 120px}
+header::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(238,237,232,.12) 1.1px,transparent 1.5px);background-size:16px 16px;-webkit-mask-image:radial-gradient(ellipse 60% 90% at 85% 30%,#000 10%,transparent 75%);mask-image:radial-gradient(ellipse 60% 90% at 85% 30%,#000 10%,transparent 75%)}
+header .wrap{position:relative}
+header .label{color:var(--on-band-2)}
+h1{margin:14px 0 0;font-family:var(--f-display);font-weight:900;font-stretch:66%;font-size:clamp(2.8rem,7vw,5rem);line-height:.9;text-transform:uppercase;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--orange)}
+header p{margin:18px 0 0;max-width:52ch;font-size:1.1rem;line-height:1.5;color:var(--on-band-2)}
+
+main{margin-top:-80px;padding-bottom:96px;position:relative}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:28px}
+.card{background:var(--surface);border-radius:8px;box-shadow:var(--e2);display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:var(--e3);transform:translateY(-3px)}
+.shot{display:block;position:relative;background:#E3E2DD;padding:14px 14px 0;text-decoration:none}
+.chrome{display:flex;gap:5px;padding:8px 10px;background:#fff;border-radius:6px 6px 0 0;border-bottom:1px solid var(--rule)}
+.chrome i{width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.frame{display:block;aspect-ratio:4/5;overflow:hidden;background:#fff}
+/* the full page pans past on hover */
+.frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0;transition:object-position 9s linear}
+.card:hover .frame img,.shot:focus-visible .frame img{object-position:50% 100%;transition-duration:var(--pan,14s)}
+.tag{position:absolute;left:24px;top:52px;font:600 .74rem/1 var(--f-label);letter-spacing:.04em;background:var(--amber);color:var(--ink);padding:7px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.latest .tag{background:var(--orange)}
+.body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.meta{display:flex;justify-content:space-between;gap:12px;color:var(--ink-2)}
+.latest .meta b{color:var(--orange-text);font-weight:600}
+h2{margin:0;font-family:var(--f-display);font-weight:800;font-stretch:82%;font-size:1.6rem;line-height:1.05}
+.body p{margin:0;font-size:1.02rem;line-height:1.5;color:var(--ink-2)}
+.open{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:.98rem;text-decoration:none;color:var(--ink)}
+.open .c{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--orange);display:grid;place-items:center;color:var(--orange-text);transition:background .2s,color .2s}
+.open:hover .c{background:var(--orange);color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.card,.frame img{transition:none}.card:hover{transform:none}.card:hover .frame img{object-position:50% 0}}
+footer{padding-block:0 48px;color:var(--ink-2)}
+</style>
+
+<header>
+  <div class="wrap">
+    <span class="label">Direct Relief · Charity ratings &amp; impact</span>
+    <h1>Why Direct <em>Relief?</em><br>Versions</h1>
+    <p>Each hi-fi round of the Why Direct Relief page. On desktop, hover a thumbnail to scroll through the whole page.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <ol class="grid" reversed>
+      <!-- Newest first. To add one: ./publish.sh vN, then copy a card and move "latest". -->
+      <li class="card latest">
+        <a class="shot" href="v6/" aria-label="Open v6"><span class="chrome" aria-hidden="true"><i></i><i></i><i></i></span><span class="frame"><img src="thumbs/v6.jpg" alt="Full-page preview of v6" loading="lazy"></span><span class="tag">v6</span></a>
+        <div class="body">
+          <div class="meta label"><b>Latest</b><span>Oct 24, 2026</span></div>
+          <h2>Regrouped: how we work, stories, numbers</h2>
+          <p>v5’s content reorganized from Susan’s review. Stages and partnership are one section, the stories sit together, and the data runs under numbered headlines. Five sections are cut.</p>
+          <a class="open" href="v6/">Open v6 <span class="c" aria-hidden="true">→</span></a>
+        </div>
+      </li>
+      <li class="card">
+        <a class="shot" href="v5/" aria-label="Open v5"><span class="chrome" aria-hidden="true"><i></i><i></i><i></i></span><span class="frame"><img src="thumbs/v5.jpg" alt="Full-page preview of v5" loading="lazy"></span><span class="tag">v5</span></a>
+        <div class="body">
+          <div class="meta label"><span>Client content</span><span>Oct 20, 2026</span></div>
+          <h2>Their content, our design</h2>
+          <p>The client prototype’s copy, in its order, set in the v4 design system with logo rating cards and Schibsted labels.</p>
+          <a class="open" href="v5/">Open v5 <span class="c" aria-hidden="true">→</span></a>
+        </div>
+      </li>
+      <li class="card">
+        <a class="shot" href="v4/" aria-label="Open v4"><span class="chrome" aria-hidden="true"><i></i><i></i><i></i></span><span class="frame"><img src="thumbs/v4.jpg" alt="Full-page preview of v4" loading="lazy"></span><span class="tag">v4</span></a>
+        <div class="body">
+          <div class="meta label"><span>Our proposal</span><span>Oct 2026</span></div>
+          <h2>Our hierarchy and additions</h2>
+          <p>Our proposed structure: status strip, donation manifest, map, timeline, FAQ and donation form.</p>
+          <a class="open" href="v4/">Open v4 <span class="c" aria-hidden="true">→</span></a>
+        </div>
+      </li>
+    </ol>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap label">Prototypes for review · Not the live site</div>
+</footer>
+</html>

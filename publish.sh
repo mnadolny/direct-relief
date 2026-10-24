@@ -25,4 +25,6 @@ done
 sed -i '' -E 's#<a class="vlink" href="https://claude\.ai/[^"]*">[^<]*</a>#<!-- & -->#' "$here/$v/index.html"
 # Design notes are for us, not the client.
 python3 "$here/strip-notes.py" "$here/$v/index.html"
+# Full-page thumbnail for the versions index.
+python3 "$here/make-thumb.py" "$v"
 echo "Published $v -> $here/$v"
