@@ -1,4 +1,4 @@
-"""Remove the internal design notes (pins, panel, toolbar button and their JS) from a published page."""
+"""Remove internal preview chrome from a published page: the design notes (pins, panel, their JS) and the preview toolbar."""
 import re
 import sys
 
@@ -17,7 +17,12 @@ s = re.sub(r"\n[ \t]*function notes\(on\)\{.*", '', s)
 s = re.sub(r"\n[ \t]*bn\.onclick=.*", '', s)
 s = re.sub(r"\n[ \t]*document\.querySelectorAll\('\.pin'\)\.forEach.*", '', s)
 
-left = [w for w in ('class="pin"', 'notes-panel"', 'b-notes', 'notes(') if w in s.split('</style>', 1)[-1]]
+# The preview toolbar (version tag, compare link, desktop/375 and labels toggles) is for us, not the client.
+s = re.sub(r'<div class="toolbar".*?</div>\n*', '', s, flags=re.S)
+s = re.sub(r'\n[ \t]*// toolbar\n.*?\n(?=\n)', '', s, flags=re.S)
+s = re.sub(r'\n(\.toolbar|@media \(max-width:560px\)\{#b-desk)[^\n]*', '', s)
+
+left = [w for w in ('class="pin"', 'notes-panel"', 'b-notes', 'notes(', 'class="toolbar"', 'b-desk', 'b-eye') if w in s.split('</style>', 1)[-1]]
 if left:
     sys.exit(f"strip-notes: still found {left} in {path}")
 open(path, 'w').write(s)
