@@ -357,7 +357,7 @@ p{margin:0}
 .recog{background:var(--surface);position:relative}
 .recog::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(16,34,45,.07) 1.1px,transparent 1.5px);background-size:16px 16px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 40%);mask-image:linear-gradient(180deg,#000,transparent 40%);pointer-events:none}
 .recog .wrap{position:relative}
-.honors{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.honors{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 @container site (max-width:900px){.honors{grid-template-columns:minmax(0,1fr)}}
 .honor{background:var(--paper);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 0 0 1px rgba(16,34,45,.06)}
 .honor h3{font-size:1.4rem;font-weight:800;font-stretch:85%;line-height:1.1}
@@ -377,7 +377,7 @@ p{margin:0}
 .honor.time img{flex:none;width:140px;height:auto}
 .honor.time>div{display:flex;flex-direction:column;gap:10px;padding-top:2px}
 .honor.time .arrow-link{margin-top:6px}
-.honor-side .archive{margin-top:0}
+.honor-side>.honor{flex:1}
 @container site (max-width:600px){.honor.time img{width:96px}.honor.time{gap:16px;padding:18px}}
 .honor .label{color:var(--orange-text)}
 .archive{margin-top:48px;border-top:1px solid var(--rule)}
@@ -720,6 +720,8 @@ body.notes .pin{display:block}
             <img src="img/time-dreamer-cover.png" alt="TIME magazine cover: Dreamer of the Year" width="140" height="188" loading="lazy">
             <div><h3>TIME Dreamer of the Year</h3><p>Recognition presented by TIME in collaboration with American Family Insurance, acknowledging this honor as part of a shared celebration.</p><a class="arrow-link sm" href="https://www.directrelief.org/2025/12/direct-relief-named-time-2025-dreamer-of-the-year/">Read about the TIME recognition <span class="c" aria-hidden="true">→</span></a></div>
           </div>
+        </div>
+      </div>
 
       <details class="drawer archive"><summary>Past ratings and recognition <span class="c" aria-hidden="true">+</span></summary>
         <div class="dr-in" style="max-width:none">
@@ -781,8 +783,6 @@ body.notes .pin{display:block}
           </div>
         </div>
       </details>
-        </div>
-      </div>
 
       <div class="press">
         <h3>Reporting and giving guides</h3>
