@@ -238,12 +238,6 @@ p{margin:0}
 .world .lbl{font:600 19px var(--f-display);fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round}
 .world .lbl2{font:500 14px var(--f-label);letter-spacing:.06em;text-transform:uppercase;fill:var(--ink-2);paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round}
 @media (prefers-reduced-motion:reduce){.world .hq .ring{animation:none;opacity:0}.world .packet{display:none}}
-.maplegend{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);color:var(--ink-2)}
-.maplegend span{display:inline-flex;align-items:center;gap:8px}
-.maplegend i{display:inline-block;width:12px;height:12px}
-.lg-hq{border-radius:50%;background:var(--ink)}
-.lg-pin{background:var(--orange);border-radius:2px;transform:rotate(-5deg);box-shadow:3px -3px 0 var(--amber)}
-.lg-route{height:0!important;width:22px!important;border-top:2px dashed var(--orange)}
 @container site (max-width:900px){.world .lbl,.world .lbl2{display:none}}
 @container site (max-width:760px){.mapcard{padding:16px 12px 14px}.world .land{stroke-width:7.4;stroke:rgba(16,34,45,.3)}.world .rpath{stroke-width:3.4}}
 .mapcard+.stats{margin:24px 28px 0;position:relative;z-index:2}
@@ -605,7 +599,6 @@ body.notes .pin{display:block}
 </svg>
 
         </div>
-        <div class="maplegend label"><span><i class="lg-hq"></i>Santa Barbara headquarters</span><span><i class="lg-pin"></i>Stories on this page</span><span><i class="lg-route"></i>Shipments in motion</span></div>
       </div>
       <div class="stats">
         <div><h3 class="label">Total aid delivered</h3><b data-count="2.0" data-dec="1" data-pre="$" data-suf="B">$2.0B</b><p>Medical material aid and financial assistance. Includes $68.8M in grants.</p></div>
