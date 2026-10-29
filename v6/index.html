@@ -171,9 +171,10 @@ p{margin:0}
 .tile-ph .imgw::before{content:"";position:absolute;inset:0;border-radius:6px;background:var(--orange);transform:rotate(-2.5deg) translate(-10px,10px)}
 .tile-ph.amber .imgw::before{background:var(--amber);transform:rotate(2deg) translate(10px,10px)}
 .tile-ph img{position:relative;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;box-shadow:var(--e3)}
-.tile-ph figcaption{margin-top:16px;color:var(--ink-2);font-size:.62rem;line-height:1.5}
+/* the tilted backing reaches ~22px below a 560px photo, so captions start past it */
+.tile-ph figcaption{margin-top:30px;color:var(--ink-2);font-size:.62rem;line-height:1.5}
 .dark .tile-ph figcaption{color:var(--on-band-2)}
-@container site (max-width:600px){.tile-ph .imgw::before{transform:rotate(-2deg) translate(-6px,6px)}.tile-ph.amber .imgw::before{transform:rotate(2deg) translate(6px,6px)}}
+@container site (max-width:600px){.tile-ph .imgw::before{transform:rotate(-2deg) translate(-6px,6px)}.tile-ph.amber .imgw::before{transform:rotate(2deg) translate(6px,6px)}.tile-ph figcaption{margin-top:20px}}
 
 /* drawers, tables */
 .drawers{margin-top:40px;border-top:1px solid var(--rule)}
