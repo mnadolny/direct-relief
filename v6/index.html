@@ -371,11 +371,11 @@ p{margin:0}
 @container site (max-width:600px){.honor.lead-h{padding:24px}}
 .honor-side{display:flex;flex-direction:column;gap:27px}
 .honor.time{flex-direction:row;align-items:flex-start;gap:19px}
-.honor.time img{flex:none;width:140px;height:auto}
+.honor.time img{flex:none;width:clamp(150px,43%,228px);height:auto;border-radius:2px;box-shadow:var(--e1)}
 .honor.time>div{display:flex;flex-direction:column;gap:10px;padding-top:2px}
 .honor.time .arrow-link{margin-top:6px}
 .honor-side>.honor{flex:1}
-@container site (max-width:600px){.honor.time img{width:96px}.honor.time{gap:16px;padding:18px}}
+@container site (max-width:600px){.honor.time img{width:112px}.honor.time{gap:16px;padding:18px}}
 .honor .label{color:var(--orange-text)}
 .archive{margin-top:48px;border-top:1px solid var(--rule)}
 .arch-h{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 20px;padding-top:8px;border-top:1px solid var(--rule)}
@@ -712,7 +712,7 @@ body.notes .pin{display:block}
         </figure>
         <div class="honor-side">
           <div class="honor time">
-            <img src="img/time-dreamer-cover.png" alt="TIME magazine cover: Dreamer of the Year" width="140" height="188" loading="lazy">
+            <img src="img/time-dreamer-cover.jpg" alt="TIME magazine cover: Dreamer of the Year" width="240" height="321" loading="lazy">
             <div><h3>TIME Dreamer of the Year</h3><p>Recognition presented by TIME in collaboration with American Family Insurance, acknowledging this honor as part of a shared celebration.</p><a class="arrow-link sm" href="https://www.directrelief.org/2025/12/direct-relief-named-time-2025-dreamer-of-the-year/">Read about the TIME recognition <span class="c" aria-hidden="true">→</span></a></div>
           </div>
         </div>
