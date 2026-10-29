@@ -154,6 +154,9 @@ p{margin:0}
 /* shared section heads */
 .sec{padding-block:104px 96px}
 @container site (max-width:600px){.sec{padding-block:64px}}
+/* subnav jumps: land each h2 ~40px below the sticky header + subnav (131px; 119px on phones) */
+.sec[data-nav]{scroll-margin-top:calc(67px + env(safe-area-inset-top,0px))}
+@container site (max-width:600px){.sec[data-nav]{scroll-margin-top:calc(83px + env(safe-area-inset-top,0px))}}
 .sec-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end}
 .sec-head h2,.h2{font-size:clamp(2.2rem,4.4cqi,3.6rem);font-weight:900;font-stretch:70%;line-height:.95;letter-spacing:-.01em;max-width:20ch}
 .sec-lede{color:var(--ink-2);font-size:1.08rem;line-height:1.55;max-width:48ch}
