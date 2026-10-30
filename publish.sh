@@ -27,4 +27,7 @@ sed -i '' -E 's#<a class="vlink" href="https://claude\.ai/[^"]*">[^<]*</a>#<!-- 
 python3 "$here/strip-notes.py" "$here/$v/index.html"
 # Full-page thumbnail for the versions index.
 python3 "$here/make-thumb.py" "$v"
+# Figma-style commenting for reviewers (added after the thumbnail so the toolbar isn't in it).
+comments="https://proto-comments.mattn-protos.workers.dev"
+printf '\n<script src="%s/widget/proto-comments.js" data-project="direct-relief-%s" data-api="%s"></script>\n' "$comments" "$v" "$comments" >> "$here/$v/index.html"
 echo "Published $v -> $here/$v"
