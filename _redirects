@@ -1,0 +1,3 @@
+# Netlify only (GitHub Pages ignores this file): send the root to the current version.
+# The "!" is needed because index.html exists at /. Bump this when a new version ships.
+/  /v6/  302!
