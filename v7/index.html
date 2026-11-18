@@ -89,19 +89,13 @@ p{margin:0}
 .dotted::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot-light) 1.1px,transparent 1.5px);background-size:16px 16px;pointer-events:none;-webkit-mask-image:var(--dot-mask,linear-gradient(180deg,#000,transparent 70%));mask-image:var(--dot-mask,linear-gradient(180deg,#000,transparent 70%))}
 .dotted>.wrap{position:relative}
 .tint{background:var(--sky-50)}
-/* flight paths: static dashed routes, with a pinging dot travelling one of them */
+/* flight paths: static dashed routes, no motion */
 .fly{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .fly .r{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .fly .r.o{stroke:var(--orange);stroke-width:1.6;stroke-dasharray:2 7;opacity:.75}
 .fly .r.b{stroke:var(--route-blue);stroke-width:1.4;stroke-dasharray:7 7;opacity:.7}
 .fly .end{fill:var(--orange)}
 .fly .end.b{fill:var(--route-blue)}
-.fly .ping{color:var(--route-blue)}
-.fly .ping.o{color:var(--orange)}
-.fly .ping .core{fill:currentColor;stroke:#fff;stroke-width:2}
-.fly .ping .halo{fill:currentColor;opacity:0;transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-out infinite}
-@keyframes ping{0%{transform:scale(.6);opacity:.45}100%{transform:scale(2.8);opacity:0}}
-@media (prefers-reduced-motion:reduce){.fly .ping .halo{animation:none}}
 @container site (max-width:600px){.fly .sm-hide{display:none}}
 
 /* buttons and links */
@@ -566,7 +560,6 @@ body.notes .pin{display:block}
       <path class="r b sm-hide" d="M420 -20 C 520 70, 590 100, 700 112"/>
       <path class="r o" d="M1490 640 C 1320 600, 1210 650, 1120 700"/>
       <circle class="end b sm-hide" cx="700" cy="112" r="4"/>
-      <g class="ping o"><circle class="halo" r="6"/><circle class="core" r="5"/><animateMotion dur="16s" repeatCount="indefinite"><mpath href="#hr-a"/></animateMotion></g>
     </svg>
     <div class="wrap grid">
       <div class="rel">
@@ -771,10 +764,6 @@ body.notes .pin{display:block}
   </section>
 
   <section class="dark lev" data-nav="dr-numbers" aria-labelledby="lev-h">
-    <svg class="fly" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path class="r b" id="lv-a" d="M-40 120 C 260 40, 560 130, 820 90 S 1250 10, 1490 60"/>
-      <g class="ping"><circle class="halo" r="6"/><circle class="core" r="5"/><animateMotion dur="18s" repeatCount="indefinite"><mpath href="#lv-a"/></animateMotion></g>
-    </svg>
     <div class="wrap">
       <div class="rel"><h2 id="lev-h">Direct Relief is a <span class="swash">multiplier</span></h2></div>
       <div class="viz">
@@ -1000,7 +989,6 @@ body.notes .pin{display:block}
     <svg class="fly" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <path class="r o" id="gv-a" d="M640 -20 C 760 70, 860 120, 1020 104 S 1340 40, 1490 56"/>
       <path class="r b" d="M860 -20 C 960 70, 1120 150, 1490 140"/>
-      <g class="ping o"><circle class="halo" r="6"/><circle class="core" r="5"/><animateMotion dur="14s" repeatCount="indefinite"><mpath href="#gv-a"/></animateMotion></g>
     </svg>
     <div class="wrap">
       <div class="closing rel" id="dr-closing">
@@ -1071,7 +1059,6 @@ body.notes .pin{display:block}
   // ?tone=deep shows the richer brand-blue bands (works on the published page too)
   var tq=/[?&]tone=(deep|light)/.exec(location.search);
   if(tq)document.body.classList.toggle('deep',tq[1]==='deep');
-  if(reduce)document.querySelectorAll('.fly animateMotion').forEach(function(a){a.parentNode.remove();});
 
   // dot-matrix land from Natural Earth 110m, 2° grid (data from v4)
   var land=document.getElementById('land');
