@@ -8,7 +8,7 @@ import tempfile
 from PIL import Image
 
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-STAGE = (217, 215, 209)  # --chrome, the grey around the page
+STAGES = ((217, 215, 209), (215, 220, 223))  # --chrome, the grey around the page (v4–v6, v7+)
 WIDTH, THUMB_W = 1440, 480  # CSS px of the layout, px of the thumbnail
 
 here = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +28,7 @@ try:
     im = Image.open(shot).convert('RGB')
     px = im.load()
     bottom = im.height - 1
-    while bottom > 0 and px[5, bottom] in (STAGE, (255, 255, 255)):
+    while bottom > 0 and px[5, bottom] in STAGES + ((255, 255, 255),):
         bottom -= 1
     if bottom + 1 >= im.height:
         sys.exit(f'{v}: page is taller than the capture window; raise the window height')
