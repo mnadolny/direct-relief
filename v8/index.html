@@ -457,10 +457,11 @@ p{margin:0}
 .pcard{display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--surface);border-radius:8px;box-shadow:inset 0 0 0 1px rgba(16,34,45,.08)}
 .pcard .label{color:var(--ink-2);font-size:.62rem}
 .pcard h4{font-size:1.2rem;font-weight:700;letter-spacing:-.015em}
-.pcard h4.serifname{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:1.3rem;letter-spacing:0}
 .pcard p{font-size:.95rem;line-height:1.45;color:var(--ink-2)}
 .pcard .links{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;gap:6px}
-.pcard .links a{font-family:var(--f-display);font-weight:500;font-size:.92rem;color:var(--ink);text-decoration-color:var(--orange);text-underline-offset:3px}
+.pcard .links .arrow-link{display:inline;line-height:1.5}
+.pcard .links .arrow-link .c{display:inline-flex;vertical-align:middle;margin-left:8px;position:relative;top:-1px}
+.more-link{margin-top:16px}
 @container site (max-width:900px){.press-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @container site (max-width:480px){.press-row{grid-template-columns:minmax(0,1fr)}}
 
@@ -1379,7 +1380,7 @@ body.deep .hero .ctas .btn-ghost{background:transparent}
       <details class="drawer archive"><summary>Past ratings and awards <span class="c" aria-hidden="true">+</span></summary>
         <div class="dr-in" style="max-width:none">
           <p><b>Ratings and recognition history:</b> Explore dated announcements from Forbes, Charity Navigator, CharityWatch, Fast Company and other organizations, along with awards honoring Direct Relief’s humanitarian work, innovation and collaboration. Current evaluator profiles appear in the <a href="#dr-ratings">ratings section above</a>.</p>
-          <p class="label src"><a href="https://www.directrelief.org/topic/ratings-awards/">Browse all ratings and awards announcements</a></p>
+          <p class="more-link"><a class="arrow-link sm" href="https://www.directrelief.org/topic/ratings-awards/">Browse all ratings and awards announcements <span class="c" aria-hidden="true">→</span></a></p>
           <p>Awards are distinct from independent charity evaluation. Current evaluator profiles appear in the ratings section above.</p>
           <div class="arch-h"><h4>Explore historical ratings and recognition</h4><span class="label">52 archived ratings, awards and honors</span></div>
           <div class="arch-cols">
@@ -1452,10 +1453,10 @@ body.deep .hero .ctas .btn-ghost{background:transparent}
         <p class="sec-lede">Explore reporting and giving guides featuring Direct Relief. Editorial coverage and recommendations are distinct from independent charity ratings.</p>
       </div>
       <div class="press-row rel">
-        <article class="pcard"><span class="label">Forbes · December 2024</span><h4>When Disaster Strikes, These Top Charities Actually Deliver</h4><p>A feature on Direct Relief’s delivery of medical supplies and support for health providers during disasters.</p><p class="links"><a href="https://www.forbes.com/sites/williampbarrett/2024/12/10/when-disaster-strikes-these-top-charities-actually-deliver/">Read the article</a></p></article>
-        <article class="pcard"><span class="label">Reader’s Digest · Updated June 2025</span><h4>Best Charities Where Your Donation Goes the Furthest</h4><p>Includes Direct Relief among its recommended charities for donors.</p><p class="links"><a href="https://www.rd.com/list/best-charities/">Read the article</a></p></article>
-        <article class="pcard"><span class="label">Emergency response coverage</span><h4 class="serifname">The New York Times</h4><p>Featured Direct Relief in its earthquake giving guide.</p><p class="links"><a href="https://www.nytimes.com/2026/06/25/world/americas/venezuela-earthquakes-help-victims.html">Read the Venezuela earthquake giving guide</a></p></article>
-        <article class="pcard"><span class="label">Verified relief funds</span><h4>CNN Impact Your World</h4><p>Included Direct Relief in its emergency relief fund.</p><p class="links"><a href="https://www.pledge.to/campaigns/help-colombia">View the Colombia fundraiser on Pledge.to</a></p></article>
+        <article class="pcard"><span class="label">Forbes · December 2024</span><h4>When Disaster Strikes, These Top Charities Actually Deliver</h4><p>A feature on Direct Relief’s delivery of medical supplies and support for health providers during disasters.</p><p class="links"><a class="arrow-link sm" href="https://www.forbes.com/sites/williampbarrett/2024/12/10/when-disaster-strikes-these-top-charities-actually-deliver/">Read the article <span class="c" aria-hidden="true">→</span></a></p></article>
+        <article class="pcard"><span class="label">Reader’s Digest · Updated June 2025</span><h4>Best Charities Where Your Donation Goes the Furthest</h4><p>Includes Direct Relief among its recommended charities for donors.</p><p class="links"><a class="arrow-link sm" href="https://www.rd.com/list/best-charities/">Read the article <span class="c" aria-hidden="true">→</span></a></p></article>
+        <article class="pcard"><span class="label">Emergency response coverage</span><h4>The New York Times</h4><p>Featured Direct Relief in its earthquake giving guide.</p><p class="links"><a class="arrow-link sm" href="https://www.nytimes.com/2026/06/25/world/americas/venezuela-earthquakes-help-victims.html">Read the Venezuela earthquake giving guide <span class="c" aria-hidden="true">→</span></a></p></article>
+        <article class="pcard"><span class="label">Verified relief funds</span><h4>CNN Impact Your World</h4><p>Included Direct Relief in its emergency relief fund.</p><p class="links"><a class="arrow-link sm" href="https://www.pledge.to/campaigns/help-colombia">View the Colombia fundraiser on Pledge.to <span class="c" aria-hidden="true">→</span></a></p></article>
       </div>
       <details class="drawer archive"><summary>Explore past media recognition <span class="label" style="margin-left:auto;color:var(--orange-text)">27 entries</span> <span class="c" aria-hidden="true">+</span></summary>
         <div class="dr-in" style="max-width:none">
@@ -1522,7 +1523,7 @@ body.deep .hero .ctas .btn-ghost{background:transparent}
           <details class="drawer"><summary>Private funding and donor instructions <span class="c" aria-hidden="true">+</span></summary>
             <div class="dr-in">
               <p>Direct Relief does not accept government funding. Gifts designated for a specific emergency or program are used only for that purpose, including directly related administrative costs. Unrestricted support allows Direct Relief to respond to needs across its work.</p>
-              <p class="label src"><a href="https://www.directrelief.org/about/finance/donation-policies/">Direct Relief’s donation policy</a></p>
+              <p class="more-link"><a class="arrow-link sm" href="https://www.directrelief.org/about/finance/donation-policies/">Direct Relief’s donation policy <span class="c" aria-hidden="true">→</span></a></p>
             </div>
           </details>
         </div>
